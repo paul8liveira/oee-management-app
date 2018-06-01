@@ -1,0 +1,73 @@
+<ons-page>
+  <ons-toolbar>
+    <div class="left"><ons-back-button>Voltar</ons-back-button></div>
+    <div class="center">Cadastre-se</div>
+  </ons-toolbar>
+
+  <form 
+    name="form" 
+    (ngSubmit)="f.form.valid && signup($event)" #f="ngForm" 
+    class="needs-validation">
+
+    <div class="formarea">
+
+      <div class="form-row">
+        <input 
+          id="company_name" 
+          name="company_name" 
+          [(ngModel)]="user.company_name"           
+          #companyname="ngModel"
+          required
+          type="text" 
+          class="text-input--underbar width-full" 
+          placeholder="Empresa" 
+          value=""
+          autofocus
+        >
+      </div>    
+  
+      <div class="form-row">
+        <input 
+          name="username" 
+          [(ngModel)]="user.username"           
+          #username="ngModel"
+          required        
+          type="text" 
+          class="text-input--underbar width-full" 
+          placeholder="E-mail" 
+          value=""
+        >
+      </div>
+  
+      <div class="form-row">
+        <input 
+          id="password"
+          name="password" 
+          [(ngModel)]="user.password"           
+          #password="ngModel"
+          minlength="6"
+          required        
+          type="password" 
+          class="text-input--underbar width-full" 
+          placeholder="Senha" 
+          value=""
+        >
+      </div>       
+      <div class="lucent" *ngIf="password.invalid && (password.dirty || password.touched)">
+        <p class="note" *ngIf="password.errors?.minlength">
+          Senha deve conter 6 caracteres ou mais.
+        </p>
+      </div>
+  
+      <div class="vspc form-row">
+        <ons-button 
+          modifier="large--cta"
+          [disabled]="!f.form.valid">
+          Cadastrar
+        </ons-button>
+      </div>
+    </div>
+
+  </form>  
+
+</ons-page>
