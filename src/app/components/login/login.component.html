@@ -6,14 +6,49 @@
     </div>
   </ons-toolbar>
 
-  <div class="login-form">
+  <form 
+    name="form" 
+    (ngSubmit)="f.form.valid" #f="ngForm" 
+    class="needs-validation">
 
-    <input type="email" class="text-input--underbar" placeholder="E-mail" value="">
-    <input type="password" class="text-input--underbar" placeholder="Senha" value="">
-    <br><br>
-    <ons-button modifier="large" class="login-button">Entrar</ons-button>
-    <br><br>
-    <ons-button modifier="quiet" class="forgot-password">Esqueceu sua senha?</ons-button>
-  </div>
-
+    <div class="login-form">
+      <img class="mb-4" src="./assets/images/logo.png" alt="" height="72">
+      <input 
+        name="username" 
+        [(ngModel)]="user.username"           
+        #username="ngModel"
+        required        
+        type="email" 
+        placeholder="E-mail" 
+        maxlength="100"
+        value=""
+        class="text-input--underbar"
+        type="email"
+      >
+      <input 
+        id="password"
+        name="password" 
+        [(ngModel)]="user.password"           
+        #password="ngModel"
+        minlength="6"
+        maxlength="20"
+        required        
+        type="password" 
+        class="text-input--underbar width-full" 
+        placeholder="Senha" 
+        value=""
+        class="text-input--underbar"
+      >    
+      <br><br>
+      <ons-button 
+        modifier="large" 
+        class="login-button"
+        (click)="login()"
+        [disabled]="loading || !f.form.valid">
+        Entrar
+      </ons-button>
+      <br><br>
+      <ons-button modifier="quiet" class="forgot-password">Esqueceu sua senha?</ons-button>
+    </div>    
+  </form>
 </ons-page>

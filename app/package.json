@@ -1,8 +1,8 @@
 {
-    "name": "helloworld",
-    "displayName": "HelloCordova",
+    "name": "br.com.startmeupsolutions.oeeapp",
+    "displayName": "StartMeUp!",
     "version": "1.0.0",
-    "description": "A sample Apache Cordova application that responds to the deviceready event.",
+    "description": "Gerenciamento de OEE por aplicativo",
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
