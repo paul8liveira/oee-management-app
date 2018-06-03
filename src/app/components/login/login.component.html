@@ -1,11 +1,13 @@
 <ons-page>
-  <ons-toolbar>
+  <ons-toolbar class="toolbar">
     <div class="center">Entrar</div>
     <div class="right">
-      <ons-toolbar-button (click)="pushCadastreSe()">Cadastre-se</ons-toolbar-button>
+      <ons-toolbar-button (click)="pushCadastreSe()">
+        <ons-icon icon="md-account-circle" size="30px"></ons-icon>
+      </ons-toolbar-button>      
     </div>
   </ons-toolbar>
-
+  <ons-progress-bar indeterminate *ngIf="loading"></ons-progress-bar>
   <form 
     name="form" 
     (ngSubmit)="f.form.valid" #f="ngForm" 
@@ -23,7 +25,7 @@
         maxlength="100"
         value=""
         class="text-input--underbar"
-        type="email"
+        [disabled]="loading"
       >
       <input 
         id="password"
@@ -38,6 +40,7 @@
         placeholder="Senha" 
         value=""
         class="text-input--underbar"
+        [disabled]="loading"
       >    
       <br><br>
       <ons-button 
@@ -48,7 +51,7 @@
         Entrar
       </ons-button>
       <br><br>
-      <ons-button modifier="quiet" class="forgot-password">Esqueceu sua senha?</ons-button>
+      <!-- <ons-button modifier="quiet" class="forgot-password">Esqueceu sua senha?</ons-button> -->
     </div>    
   </form>
 </ons-page>

@@ -1,1 +1,19 @@
-/* You can add global styles to this file, and also import other style files */
+.toolbar {
+    background-color: #3D5FA9;
+}
+  
+.toolbar:active {
+    background-color: #3D5FA9;
+}
+
+.toolbar * {
+    color: #FFFFFF;
+}
+
+.back-button--material__icon {
+    fill: #FFFFFF;
+}
+
+.button--material {
+    background-color: #A7CD44;
+}

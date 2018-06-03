@@ -1,15 +1,41 @@
 <ons-page>
-  <ons-toolbar>
-    <div class="center">Pull Hook</div>
+  <ons-toolbar class="toolbar">
+    <div class="center">Medições do dia xx/xx/xxxx</div>
+    <div class="right">
+      <ons-toolbar-button>
+        <ons-icon icon="md-search" size="30px"></ons-icon>
+      </ons-toolbar-button>
+    </div>
   </ons-toolbar>
+  <ons-progress-bar indeterminate *ngIf="loading"></ons-progress-bar>
 
   <div class="content">
-    <ons-pull-hook height="64px" threshold-height="128px" (changestate)="onChangeState($event)" (action)="onAction($event)">
-      {{message}}
-    </ons-pull-hook>
-
     <ons-list>
-      <ons-list-item *ngFor="let item of items; let i = index">Item {{i}}</ons-list-item>
+      <ons-list-item modifier="chevron" tappable>Chevron</ons-list-item>                                             
+      <ons-list-item modifier="chevron" tappable>Chevron</ons-list-item>                                             
+      <ons-list-item modifier="chevron" tappable>Chevron</ons-list-item>                                             
+      <ons-list-item modifier="chevron" tappable>Chevron</ons-list-item>                                             
+      <ons-list-item modifier="chevron" tappable>Chevron</ons-list-item>                                             
+      <ons-list-item modifier="chevron" tappable>Chevron</ons-list-item>                                             
+      <ons-list-item modifier="chevron" tappable>Chevron</ons-list-item>                                             
+      <ons-list-item modifier="chevron" tappable>Chevron</ons-list-item>                                             
+      <ons-list-item modifier="chevron" tappable>Chevron</ons-list-item>                                             
+      <ons-list-item modifier="chevron" tappable>Chevron</ons-list-item>                                             
+      <ons-list-item modifier="chevron" tappable>Chevron</ons-list-item>                                             
+      <ons-list-item modifier="chevron" tappable>Chevron</ons-list-item>                                             
+      <ons-list-item modifier="chevron" tappable>Chevron</ons-list-item>                                             
+      <ons-list-item modifier="chevron" tappable>Chevron</ons-list-item>                                             
+      <ons-list-item modifier="chevron" tappable>Chevron</ons-list-item>                                             
+      <ons-list-item modifier="chevron" tappable>Chevron</ons-list-item>                                             
+      <ons-list-item modifier="chevron" tappable>Chevron</ons-list-item>                                             
     </ons-list>
+    <br />
   </div>
+
+  <ons-fab position="right bottom" class="fa-button" modifier="mini">
+    <ons-icon
+    icon="md-edit">
+    </ons-icon>
+  </ons-fab>
+
 </ons-page>

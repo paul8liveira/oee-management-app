@@ -12,6 +12,7 @@ import { LoginComponent } from '../login/login.component';
 })
 export class SignupComponent implements OnInit {
   user: User = new User();
+  loading: boolean = false;
 
   constructor(private navi: OnsNavigator
             , private userService: UserService) {
@@ -21,7 +22,8 @@ export class SignupComponent implements OnInit {
   ngOnInit() {
   }
 
-  signup() { 
+  signup() {
+    this.loading = true; 
     this.userService.signup(this.user)
     .subscribe(
       result => {
@@ -34,6 +36,7 @@ export class SignupComponent implements OnInit {
       },
       error => {
         ons.notification.toast(error, {timeout: 5000});
+        this.loading = false;
       }
     );        
   }

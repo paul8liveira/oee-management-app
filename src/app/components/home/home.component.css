@@ -1,0 +1,24 @@
+.fa-button {
+    background-color: #A7CD44;
+  }
+  
+  .fa-button:active {
+    background-color: #A7CD44;
+  }
+  
+  .fa-button * {
+    color: #FFFFFF;
+  }
+    
+  .fa-fav-star {
+    margin-top: -15px;
+    padding-left: 10px;
+    font-size: 30px;
+    float: right;
+    color: rgba(0,0,0,0.50);
+  }
+  
+  .fa-fav-star > ons-icon {
+    vertical-align: -18%;
+  }
+  
