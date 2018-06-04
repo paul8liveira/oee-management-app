@@ -7,14 +7,14 @@
       </ons-toolbar-button>      
     </div>
   </ons-toolbar>
-  <ons-progress-bar indeterminate *ngIf="loading"></ons-progress-bar>
+  <ons-progress-bar indeterminate *ngIf="loading" modifier="material"></ons-progress-bar>
   <form 
     name="form" 
     (ngSubmit)="f.form.valid" #f="ngForm" 
     class="needs-validation">
 
     <div class="login-form">
-      <img class="mb-4" src="./assets/images/logo.png" alt="" height="72">
+      <img src="./assets/images/logo.png" alt="" height="72">
       <input 
         name="username" 
         [(ngModel)]="user.username"           
@@ -36,7 +36,6 @@
         maxlength="20"
         required        
         type="password" 
-        class="text-input--underbar width-full" 
         placeholder="Senha" 
         value=""
         class="text-input--underbar"

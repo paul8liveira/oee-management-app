@@ -23,6 +23,7 @@
     "@angular/router": "^5.2.0",
     "core-js": "^2.4.1",
     "ngx-onsenui": "^4.2.0",
+    "npm": "^6.1.0",
     "onsenui": "^2.10.1",
     "rxjs": "^5.5.6",
     "zone.js": "^0.8.19"

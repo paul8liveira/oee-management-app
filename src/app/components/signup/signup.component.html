@@ -5,7 +5,7 @@
     </div>
     <div class="center">Cadastre-se</div>
   </ons-toolbar>
-  <ons-progress-bar indeterminate *ngIf="loading"></ons-progress-bar>
+  <ons-progress-bar indeterminate *ngIf="loading" modifier="material"></ons-progress-bar>
   <form 
     name="form" 
     (ngSubmit)="f.form.valid" #f="ngForm" 

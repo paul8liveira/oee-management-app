@@ -35,7 +35,7 @@ export class SignupComponent implements OnInit {
         this.user = new User();
       },
       error => {
-        ons.notification.toast(error, {timeout: 5000});
+        ons.notification.toast(error || "Parece que tivemos um problema, tente daqui a pouco...", {timeout: 5000});
         this.loading = false;
       }
     );        

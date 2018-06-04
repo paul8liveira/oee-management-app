@@ -17,3 +17,11 @@
 .button--material {
     background-color: #A7CD44;
 }
+
+.progress-bar--material.progress-bar--indeterminate:before {
+    background-color: #A7CD44;
+}
+
+.progress-bar--material.progress-bar--indeterminate:after {
+    background-color: #A7CD44;
+}
