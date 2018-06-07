@@ -1,4 +1,4 @@
-#Sun Jun 03 19:56:02 BRT 2018
-base.0=D\:\\Sistemas\\Angular\\oee-management-app\\cordova\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+#Thu Jun 07 14:17:14 BRT 2018
+base.0=C\:\\Users\\paul8liveira\\source\\repos\\GitHub\\oee-management-app\\cordova\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
 renamed.0=classes.dex
-file.0=D\:\\Sistemas\\Angular\\oee-management-app\\cordova\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0\\classes.dex
+file.0=C\:\\Users\\paul8liveira\\source\\repos\\GitHub\\oee-management-app\\cordova\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0\\classes.dex
