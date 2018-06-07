@@ -47,7 +47,8 @@
         class="login-button"
         (click)="login()"
         [disabled]="loading || !f.form.valid">
-        Entrar
+        <span [ngStyle]="{'display': loading ? 'none' : 'block'}">Entrar</span>
+        <ons-icon size="20px" spin icon="md-spinner" [ngStyle]="{'display': loading ? 'block' : 'none'}"></ons-icon>
       </ons-button>
       <br><br>
       <!-- <ons-button modifier="quiet" class="forgot-password">Esqueceu sua senha?</ons-button> -->

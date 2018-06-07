@@ -10,6 +10,7 @@
     <content src="index.html" />
     <access origin="https://oee-server.appspot.com" />
     <access origin="http://www.paul8liveira.blog.br:8008" />
+    <preference name="StatusBarBackgroundColor" value="#314289" />
     <platform name="android">
         <allow-intent href="market:*" />
         <icon density="ldpi" src="res/icon/android/ldpi.png" />
@@ -24,4 +25,5 @@
     </platform>
     <plugin name="cordova-plugin-whitelist" spec="^1.3.3" />
     <engine name="android" spec="^7.0.0" />
+    <plugin name="cordova-plugin-statusbar" spec="^2.4.2" />
 </widget>

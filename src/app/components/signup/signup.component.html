@@ -77,8 +77,9 @@
         <ons-button 
           modifier="large--cta"
           (click)="signup()"
-          [disabled]="loading || !f.form.valid">
-          Cadastrar
+          [disabled]="loading || !f.form.valid">          
+          <span [ngStyle]="{'display': loading ? 'none' : 'block'}">Cadastrar</span>
+          <ons-icon size="20px" spin icon="md-spinner" [ngStyle]="{'display': loading ? 'block' : 'none'}"></ons-icon>          
         </ons-button>
       </div>
     </div>

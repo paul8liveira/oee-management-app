@@ -4,8 +4,17 @@
     <meta charset="utf-8">
     <title>OeeManagementApp</title>
     <base href="/">
+    <script type="text/javascript" src="cordova.js"></script>   
   </head>
   <body>
     <app-root></app-root>
+    <script>
+      document.addEventListener("deviceready", onDeviceReady, false);
+      function onDeviceReady() {
+        if (cordova.platformId == "android") {
+            StatusBar.backgroundColorByHexString("#314289");
+        }
+      }
+    </script>     
   </body>
 </html>
