@@ -32,6 +32,28 @@
   
       <div class="form-row">
         <input 
+          id="phone"
+          name="phone" 
+          [(ngModel)]="user.phone"           
+          #phone="ngModel"
+          minlength="10"
+          maxlength="11"
+          required        
+          type="text" 
+          class="text-input--underbar width-full" 
+          placeholder="Telefone" 
+          value=""
+          [disabled]="loading"
+        >
+        <div class="lucent" *ngIf="phone.invalid && (phone.dirty || phone.touched)">
+          <p class="note" *ngIf="phone.errors?.minlength">
+            Telefone deve ser informado com DDD.
+          </p>
+        </div>        
+      </div>         
+
+      <div class="form-row">
+        <input 
           name="username" 
           [(ngModel)]="user.username"           
           #username="ngModel"
@@ -44,11 +66,11 @@
           value=""
           [disabled]="loading"
         >
-      </div>
-      <div class="lucent" *ngIf="username.invalid && (username.dirty || username.touched)">
-        <p class="note" *ngIf="username.errors && username.errors.pattern">
-          E-mail informado é inválido.
-        </p>
+        <div class="lucent" *ngIf="username.invalid && (username.dirty || username.touched)">
+          <p class="note" *ngIf="username.errors && username.errors.pattern">
+            E-mail informado é inválido.
+          </p>
+        </div>        
       </div>
   
       <div class="form-row">
@@ -66,12 +88,12 @@
           value=""
           [disabled]="loading"
         >
+        <div class="lucent" *ngIf="password.invalid && (password.dirty || password.touched)">
+          <p class="note" *ngIf="password.errors?.minlength">
+            Senha deve conter no mínimo 6 e no máximo 20 caracteres.
+          </p>
+        </div>        
       </div>       
-      <div class="lucent" *ngIf="password.invalid && (password.dirty || password.touched)">
-        <p class="note" *ngIf="password.errors?.minlength">
-          Senha deve conter no mínimo 6 e no máximo 20 caracteres.
-        </p>
-      </div>
   
       <div class="vspc form-row">
         <ons-button 

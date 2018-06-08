@@ -1,6 +1,6 @@
 <ons-page>
   <ons-toolbar class="toolbar">
-    <div class="center">Medições do dia xx/xx/xxxx</div>
+    <div class="center">Medições do dia {{date}}</div>
     <div class="right">
       <ons-toolbar-button>
         <ons-icon icon="md-search" size="30px"></ons-icon>
@@ -9,27 +9,27 @@
   </ons-toolbar>
   <ons-progress-bar indeterminate *ngIf="loading"></ons-progress-bar>
 
-  <ons-list>
-    <ons-list-item modifier="chevron" tappable>Chevron</ons-list-item>                                             
-    <ons-list-item modifier="chevron" tappable>Chevron</ons-list-item>                                             
-    <ons-list-item modifier="chevron" tappable>Chevron</ons-list-item>                                             
-    <ons-list-item modifier="chevron" tappable>Chevron</ons-list-item>                                             
-    <ons-list-item modifier="chevron" tappable>Chevron</ons-list-item>                                             
-    <ons-list-item modifier="chevron" tappable>Chevron</ons-list-item>                                             
-    <ons-list-item modifier="chevron" tappable>Chevron</ons-list-item>                                             
-    <ons-list-item modifier="chevron" tappable>Chevron</ons-list-item>                                             
-    <ons-list-item modifier="chevron" tappable>Chevron</ons-list-item>                                             
-    <ons-list-item modifier="chevron" tappable>Chevron</ons-list-item>                                             
-    <ons-list-item modifier="chevron" tappable>Chevron</ons-list-item>                                             
-    <ons-list-item modifier="chevron" tappable>Chevron</ons-list-item>                                             
-    <ons-list-item modifier="chevron" tappable>Chevron</ons-list-item>                                             
-    <ons-list-item modifier="chevron" tappable>Chevron</ons-list-item>                                             
-    <ons-list-item modifier="chevron" tappable>Chevron</ons-list-item>                                             
-    <ons-list-item modifier="chevron" tappable>Chevron</ons-list-item>                                             
-    <ons-list-item modifier="chevron" tappable>Chevron</ons-list-item>                                             
+  <ons-pull-hook height="64px" threshold-height="128px" (changestate)="onChangeState($event)" (action)="onAction($event)">
+    {{hookMessage}}
+  </ons-pull-hook>
+
+  <ons-list>     
+    <ons-list-item tappable *ngFor="let feed of feeds; let i = index">
+      <div class="left">
+        <div class="list-item__thumbnail" style="background-color:lightgrey">
+          <div class="icon-container">
+           <div class="icon-text">{{feed.mc_cd}}</div>
+          </div>
+        </div>
+      </div>
+      <div class="center">
+        <span class="list-item__title">{{feed.oee}} - {{feed.time}}</span>
+        <span class="list-item__subtitle">qualidade: {{feed.field2}} / desempenho: {{feed.field4}}</span>
+      </div>
+    </ons-list-item>    
   </ons-list>
 
-  <ons-fab position="right bottom" class="fa-button" modifier="mini">
+  <ons-fab position="right bottom" class="fa-button">
     <ons-icon
     icon="md-edit">
     </ons-icon>

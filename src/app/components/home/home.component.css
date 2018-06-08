@@ -21,3 +21,16 @@
   .fa-fav-star > ons-icon {
     vertical-align: -18%;
   }
+
+  .icon-container {
+    display: table; 
+    height: 100%; 
+    width: 100%;
+  }
+
+  .icon-text {
+    display: table-cell; 
+    vertical-align: middle; 
+    font-size: 11px; 
+    text-align: center;
+  }

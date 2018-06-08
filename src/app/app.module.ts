@@ -12,6 +12,7 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { UserService } from './services/user.service';
+import { HomeService } from './services/home.service';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { UserService } from './services/user.service';
     OnsenModule
   ],
   providers: [
-    UserService
+    UserService,
+    HomeService
   ],
   bootstrap: [
     AppComponent
