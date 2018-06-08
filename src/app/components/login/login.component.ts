@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
       });    
   }
 
-  pushCadastreSe() {
+  pushSignUp() {
     this._navigator.element.pushPage(SignupComponent); 
   }
   pushHome() {

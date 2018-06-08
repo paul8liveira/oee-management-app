@@ -14,6 +14,7 @@ import { SignupComponent } from './components/signup/signup.component';
 import { UserService } from './services/user.service';
 import { HomeService } from './services/home.service';
 import { BaseComponent } from './components/base.component';
+import { FeedComponent } from './components/feed/feed.component';
 
 @NgModule({
   declarations: [
@@ -21,12 +22,14 @@ import { BaseComponent } from './components/base.component';
     BaseComponent,
     HomeComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    FeedComponent
   ],
   entryComponents: [
     LoginComponent,
     SignupComponent, 
     HomeComponent, 
+    FeedComponent
   ],
   imports: [
     Routing,

@@ -26,12 +26,8 @@ export class BaseComponent implements OnInit {
                 year);
     }    
 
-    getCurrentDateNoSlash() {
-        let now = new Date();
-        let day = now.getDate();
-        let month = now.getMonth()+1;
-        let year = now.getFullYear();
-        return ((day.toString().length == 1 ? "0"+day : day).toString() + (month.toString().length == 1 ? "0"+month : month).toString() + year.toString());
+    setCurrentDateNoSlash(date: string) {
+        return date.replace("/","").replace("/","").replace("/","");
     }      
 
     getTime(datetime) {

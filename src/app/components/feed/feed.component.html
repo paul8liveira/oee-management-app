@@ -1,0 +1,111 @@
+<ons-page>
+  <ons-toolbar class="toolbar">
+    <div class="left">
+      <ons-back-button modifier="material">Voltar</ons-back-button>
+    </div>
+    <div class="center">Informar medição</div>
+  </ons-toolbar>
+  <ons-progress-bar indeterminate *ngIf="loading" modifier="material"></ons-progress-bar>
+  <!-- <form 
+    name="form" 
+    (ngSubmit)="f.form.valid" #f="ngForm" 
+    class="needs-validation">
+
+    <div class="formarea">
+
+      <div class="form-row">
+        <input 
+          id="company_name" 
+          name="company_name" 
+          [(ngModel)]="user.company_name"           
+          #companyname="ngModel"
+          required
+          type="text" 
+          class="text-input--underbar width-full" 
+          placeholder="Empresa" 
+          maxlength="200"
+          value=""
+          autofocus
+          [disabled]="loading"
+        >
+      </div>    
+  
+      <div class="form-row">
+        <input 
+          id="phone"
+          name="phone" 
+          [(ngModel)]="user.phone"           
+          #phone="ngModel"
+          minlength="10"
+          maxlength="11"
+          required        
+          type="text" 
+          class="text-input--underbar width-full" 
+          placeholder="Telefone" 
+          value=""
+          [disabled]="loading"
+        >
+        <div class="lucent" *ngIf="phone.invalid && (phone.dirty || phone.touched)">
+          <p class="note" *ngIf="phone.errors?.minlength">
+            Telefone deve ser informado com DDD.
+          </p>
+        </div>        
+      </div>         
+
+      <div class="form-row">
+        <input 
+          name="username" 
+          [(ngModel)]="user.username"           
+          #username="ngModel"
+          required        
+          type="email" 
+          class="text-input--underbar width-full" 
+          placeholder="E-mail" 
+          maxlength="100"
+          pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+          value=""
+          [disabled]="loading"
+        >
+        <div class="lucent" *ngIf="username.invalid && (username.dirty || username.touched)">
+          <p class="note" *ngIf="username.errors && username.errors.pattern">
+            E-mail informado é inválido.
+          </p>
+        </div>        
+      </div>
+  
+      <div class="form-row">
+        <input 
+          id="password"
+          name="password" 
+          [(ngModel)]="user.password"           
+          #password="ngModel"
+          minlength="6"
+          maxlength="20"
+          required        
+          type="password" 
+          class="text-input--underbar width-full" 
+          placeholder="Senha" 
+          value=""
+          [disabled]="loading"
+        >
+        <div class="lucent" *ngIf="password.invalid && (password.dirty || password.touched)">
+          <p class="note" *ngIf="password.errors?.minlength">
+            Senha deve conter no mínimo 6 e no máximo 20 caracteres.
+          </p>
+        </div>        
+      </div>       
+  
+      <div class="vspc form-row">
+        <ons-button 
+          modifier="large--cta"
+          (click)="signup()"
+          [disabled]="loading || !f.form.valid">          
+          <span [ngStyle]="{'display': loading ? 'none' : 'block'}">Cadastrar</span>
+          <ons-icon size="20px" spin icon="md-spinner" [ngStyle]="{'display': loading ? 'block' : 'none'}"></ons-icon>          
+        </ons-button>
+      </div>
+    </div>
+
+  </form>   -->
+
+</ons-page>

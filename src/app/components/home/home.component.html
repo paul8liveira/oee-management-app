@@ -3,16 +3,15 @@
     <div class="center">Medições do dia {{date}}</div>
     <div class="right">
       <ons-toolbar-button>
-        <ons-icon icon="md-search" size="30px"></ons-icon>
+        <ons-icon icon="md-search" size="30px" (click)="modal.show();dialog.show()"></ons-icon>
       </ons-toolbar-button>
     </div>
   </ons-toolbar>
-  <ons-progress-bar indeterminate *ngIf="loading"></ons-progress-bar>
-
   <ons-pull-hook height="64px" threshold-height="128px" (changestate)="onChangeState($event)" (action)="onAction($event)">
     {{hookMessage}}
   </ons-pull-hook>
 
+  <ons-progress-bar indeterminate *ngIf="loading" modifier="material"></ons-progress-bar>
   <ons-list>     
     <ons-list-item tappable *ngFor="let feed of feeds; let i = index">
       <div class="left">
@@ -31,8 +30,33 @@
 
   <ons-fab position="right bottom" class="fa-button">
     <ons-icon
+    (click)="pushFeed()"
     icon="md-edit">
     </ons-icon>
   </ons-fab>
+
+  <ons-modal #modal>
+    <ons-dialog animation="default" cancelable #dialog>
+        <div class="dialog-mask"></div>
+          <div class="dialog">
+            <div class="dialog-container" style="height: 200px;">
+              <ons-page>
+                <ons-toolbar>
+                  <div class="center">Filtros</div>
+                </ons-toolbar>
+                <div class="content">
+                  <div style="text-align: center">
+                    <p>
+                      <ons-input [(value)]="date"></ons-input>
+                    </p>
+                    <br>
+                    <ons-button (click)="dialog.hide();modal.hide();getData()">Fechar</ons-button>
+                  </div>
+                </div>
+              </ons-page>
+            </div>
+          </div>
+      </ons-dialog>
+  </ons-modal>  
 
 </ons-page>
