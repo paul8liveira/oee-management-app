@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Fri Jun 08 14:45:58 BRT 2018
+#Fri Jun 08 19:30:08 BRT 2018
 5.base=C\:\\Users\\paul8liveira\\source\\repos\\GitHub\\oee-management-app\\cordova\\platforms\\android\\app\\build\\intermediates\\res\\debug\\resources-debug.ap_
 42.base=C\:\\Users\\paul8liveira\\source\\repos\\GitHub\\oee-management-app\\cordova\\platforms\\android\\app\\build\\intermediates\\assets\\debug
 32.set=ASSET
@@ -63,7 +63,7 @@ count=48
 46.file=C\:\\Users\\paul8liveira\\source\\repos\\GitHub\\oee-management-app\\cordova\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\ionicons.aff28a207631f39ee027.svg
 7.set=ANDROID_RESOURCE
 45.set=ANDROID_RESOURCE
-22.file=C\:\\Users\\paul8liveira\\source\\repos\\GitHub\\oee-management-app\\cordova\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\main.8820e237c470ec98533e.js
+22.file=C\:\\Users\\paul8liveira\\source\\repos\\GitHub\\oee-management-app\\cordova\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\main.eb4ab57a4bcd6cb6ebfc.js
 32.file=C\:\\Users\\paul8liveira\\source\\repos\\GitHub\\oee-management-app\\cordova\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\cordova.js
 34.set=ASSET
 26.file=C\:\\Users\\paul8liveira\\source\\repos\\GitHub\\oee-management-app\\cordova\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0\\classes.dex
