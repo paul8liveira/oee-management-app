@@ -13,10 +13,12 @@ import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { UserService } from './services/user.service';
 import { HomeService } from './services/home.service';
+import { BaseComponent } from './components/base.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    BaseComponent,
     HomeComponent,
     LoginComponent,
     SignupComponent
