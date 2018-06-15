@@ -3,7 +3,7 @@
     <div class="center">Medições do dia {{date}}</div>
     <div class="right">
       <ons-toolbar-button>
-        <ons-icon icon="md-search" size="30px" (click)="modal.show();dialog.show()"></ons-icon>
+        <ons-icon icon="md-search" size="30px" (click)="dialog.show()"></ons-icon>
       </ons-toolbar-button>
     </div>
   </ons-toolbar>
@@ -23,7 +23,7 @@
       </div>
       <div class="center">
         <span class="list-item__title">{{feed.oee}} - {{feed.time}}</span>
-        <span class="list-item__subtitle">qualidade: {{feed.field2}} / desempenho: {{feed.field4}}</span>
+        <span class="list-item__subtitle">tempo prod. (min): {{feed.field2}} / tempo turno (min): {{feed.field4}}</span>
       </div>
     </ons-list-item>    
   </ons-list>
@@ -35,28 +35,42 @@
     </ons-icon>
   </ons-fab>
 
-  <ons-modal #modal>
-    <ons-dialog animation="default" cancelable #dialog>
-        <div class="dialog-mask"></div>
-          <div class="dialog">
-            <div class="dialog-container" style="height: 200px;">
-              <ons-page>
-                <ons-toolbar>
-                  <div class="center">Filtros</div>
-                </ons-toolbar>
-                <div class="content">
+  <ons-dialog animation="default" cancelable #dialog>
+      <div class="dialog-mask"></div>
+        <div class="dialog">
+          <div class="dialog-container" style="height: 300px;">
+            <ons-page>
+              <ons-toolbar>
+                <div class="center">Filtros</div>
+              </ons-toolbar>
+              <div class="content">
+                <div style="padding: 10px">
+                  <p>
+                    <ons-input [(value)]="date" mask="00/00/0000" placeholder="Data" style="width: 100%"></ons-input>
+                  </p>
+                  <p>
+                    <ons-select [(ngModel)]="channelId" style="width: 100%">
+                      <option *ngFor="let channel of channels" [value]="channel.id">
+                      {{ channel.name }}
+                      </option>
+                    </ons-select>
+                  </p>
+                  <p>
+                    <ons-select [(ngModel)]="machineCode" style="width: 100%">
+                      <option *ngFor="let machine of machines" [value]="machine.code">
+                      [{{ machine.code }}] {{ machine.name }}
+                      </option>
+                    </ons-select> 
+                  </p>
+                  <br>
                   <div style="text-align: center">
-                    <p>
-                      <ons-input [(value)]="date"></ons-input>
-                    </p>
-                    <br>
-                    <ons-button (click)="dialog.hide();modal.hide();getData()">Fechar</ons-button>
-                  </div>
+                      <ons-button (click)="getData(true);dialog.hide()">Filtrar</ons-button>
+                  </div>                  
                 </div>
-              </ons-page>
-            </div>
+              </div>
+            </ons-page>
           </div>
-      </ons-dialog>
-  </ons-modal>  
+        </div>
+    </ons-dialog>
 
 </ons-page>

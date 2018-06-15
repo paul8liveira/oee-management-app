@@ -3,8 +3,10 @@ import { BaseComponent } from '../base.component';
 import { HomeService } from '../../services/home.service';
 import * as ons from 'onsenui';
 import { Feed } from '../../models/feed';
-import { OnsLazyRepeat, ViewChild, OnsNavigator } from 'ngx-onsenui';
+import { OnsNavigator } from 'ngx-onsenui';
 import { FeedComponent } from '../feed/feed.component';
+import { ChannelService } from '../../services/channel.service';
+import { MachineService } from '../../services/machine.service';
 
 
 @Component({
@@ -13,19 +15,29 @@ import { FeedComponent } from '../feed/feed.component';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent extends BaseComponent implements OnInit {
+  channels: Array<any> = [];
+  channelId: number;
+
+  machines: Array<any> = [];
+  machineCode: string;
+
   loading: boolean = true;
   date: string;
+  
   feeds: Array<Feed> = [];
   hookMessage: string = 'Puxe para baixo para atualizar';
   limit: number = 0;
 
-  constructor(private homeService: HomeService, private _navigator: OnsNavigator) {
+  constructor(private homeService: HomeService, 
+              private _navigator: OnsNavigator,
+              private channelService: ChannelService,
+              private machineService: MachineService) {
     super();
-    this.date = this.getCurrentDate();   
-    this.getData();
+    this.date = this.getCurrentDate();     
+    this.getChannels();      
   }
 
-  ngOnInit() {     
+  ngOnInit() {
   }
 
   onAction($event) {
@@ -50,9 +62,11 @@ export class HomeComponent extends BaseComponent implements OnInit {
     }
   }  
 
-  getData() {
-    this.limit += 10;
-    this.homeService.listFeed(this.getCurrentUser().id, this.setCurrentDateNoSlash(this.date), this.limit)
+  getData(resetLimit: boolean = false) {
+    this.limit += resetLimit ? -this.limit+10 : 10;
+    this.loading = true;
+
+    this.homeService.listFeed(this.getCurrentUser().id, this.channelId, this.machineCode, this.setCurrentDateNoSlash(this.date), this.limit)
     .subscribe(
       result => {
         this.feeds = result;
@@ -67,4 +81,31 @@ export class HomeComponent extends BaseComponent implements OnInit {
   pushFeed() {
     this._navigator.element.pushPage(FeedComponent); 
   }    
+
+  getChannels() {
+    this.channelService.list(this.getCurrentUser().id)
+    .subscribe(
+      result => {
+        this.channels = result.filter(f => f.active.toString() === "Ativo");
+        this.channelId = this.channels[0].id;
+        this.getMachines();
+      },
+      error => {
+        ons.notification.toast(error, {timeout: 5000});
+      });     
+  }  
+  
+  getMachines() {
+    this.machineService.list(this.getCurrentUser().id)
+    .subscribe(
+      result => {
+        this.machines = result;
+        this.machineCode = this.machines[0].code;
+        this.getData();
+      },
+      error => {
+        ons.notification.toast(error, {timeout: 5000});
+      });     
+  }  
+
 }

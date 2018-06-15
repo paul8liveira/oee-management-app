@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { OnsenModule } from 'ngx-onsenui';
+import {NgxMaskModule} from 'ngx-mask'
 
 import { Routing } from './app.routes';
 import { AppComponent } from './app.component';
@@ -15,6 +16,8 @@ import { UserService } from './services/user.service';
 import { HomeService } from './services/home.service';
 import { BaseComponent } from './components/base.component';
 import { FeedComponent } from './components/feed/feed.component';
+import { ChannelService } from './services/channel.service';
+import { MachineService } from './services/machine.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,7 @@ import { FeedComponent } from './components/feed/feed.component';
     HomeComponent,
     LoginComponent,
     SignupComponent,
-    FeedComponent
+    FeedComponent,
   ],
   entryComponents: [
     LoginComponent,
@@ -38,11 +41,14 @@ import { FeedComponent } from './components/feed/feed.component';
     HttpModule,
     CommonModule,
     FormsModule,
-    OnsenModule
+    OnsenModule,
+    NgxMaskModule.forRoot()
   ],
   providers: [
     UserService,
-    HomeService
+    HomeService,
+    ChannelService,
+    MachineService
   ],
   bootstrap: [
     AppComponent

@@ -15,9 +15,11 @@ export class HomeService extends BaseService {
     super();
   }
 
-    listFeed(userId: number, date: string, limit: number): Observable<Feed[]> {
+    listFeed(userId: number, channelId: number, machineCode: string, date: string, limit: number): Observable<Feed[]> {
         let url = environment.feedURL
             .replace(":userId", userId.toString())
+            .replace(":channelId", channelId.toString())
+            .replace(":machineCode", machineCode)
             .replace(":date", date)
             .replace(":limit", limit.toString());
             
