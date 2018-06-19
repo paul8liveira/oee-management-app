@@ -21,23 +21,25 @@ export class HomeComponent extends BaseComponent implements OnInit {
   machines: Array<any> = [];
   machineCode: string;
 
-  loading: boolean = true;
+  loading: boolean = false;
   date: string;
   
   feeds: Array<Feed> = [];
   hookMessage: string = 'Puxe para baixo para atualizar';
   limit: number = 0;
 
+  firstLoad: boolean = true;
+
   constructor(private homeService: HomeService, 
               private _navigator: OnsNavigator,
               private channelService: ChannelService,
               private machineService: MachineService) {
-    super();
-    this.date = this.getCurrentDate();     
-    this.getChannels();      
+    super();                   
   }
 
   ngOnInit() {
+    this.date = this.getCurrentDate();
+    this.getChannels();
   }
 
   onAction($event) {
@@ -94,14 +96,23 @@ export class HomeComponent extends BaseComponent implements OnInit {
         ons.notification.toast(error, {timeout: 5000});
       });     
   }  
+  onSelectChannel(channelId: number) {
+    this.channelId = channelId;
+    this.getMachines();
+  }
   
   getMachines() {
-    this.machineService.list(this.getCurrentUser().id, 0)
+    this.machineService.list(this.getCurrentUser().id, this.channelId)
     .subscribe(
       result => {
         this.machines = result;
-        this.machineCode = this.machines[0].code;
-        this.getData();
+        this.machineCode = this.machines[0].code;      
+        
+        if(this.firstLoad) {
+          this.getData();
+          this.firstLoad = false;
+        }
+          
       },
       error => {
         ons.notification.toast(error, {timeout: 5000});

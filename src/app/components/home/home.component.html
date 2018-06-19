@@ -23,7 +23,13 @@
       </div>
       <div class="center">
         <span class="list-item__title">{{feed.oee}} - {{feed.time}}</span>
-        <span class="list-item__subtitle">tempo prod. (min): {{feed.field2}} / tempo turno (min): {{feed.field4}}</span>
+        <span class="list-item__subtitle">
+          <span *ngIf="feed.field1_desc">{{feed.field1_desc}}: {{feed.field1}}</span>  
+          <span *ngIf="feed.field2_desc">{{feed.field2_desc}}: {{feed.field2}}</span>  
+          <span *ngIf="feed.field3_desc">{{feed.field3_desc}}: {{feed.field3}}</span>  
+          <span *ngIf="feed.field4_desc">{{feed.field4_desc}}: {{feed.field4}}</span>  
+          <span *ngIf="feed.field5_desc">{{feed.field5_desc}}: {{feed.field5}} </span>            
+        </span>
       </div>
     </ons-list-item>    
   </ons-list>
@@ -49,7 +55,7 @@
                     <ons-input [(value)]="date" mask="00/00/0000" placeholder="Data" style="width: 100%"></ons-input>
                   </p>
                   <p>
-                    <ons-select [(ngModel)]="channelId" style="width: 100%">
+                    <ons-select [(ngModel)]="channelId" style="width: 100%" (change)="onSelectChannel($event.target.value)">
                       <option *ngFor="let channel of channels" [value]="channel.id">
                       {{ channel.name }}
                       </option>
