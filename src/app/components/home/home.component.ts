@@ -96,7 +96,7 @@ export class HomeComponent extends BaseComponent implements OnInit {
   }  
   
   getMachines() {
-    this.machineService.list(this.getCurrentUser().id)
+    this.machineService.list(this.getCurrentUser().id, 0)
     .subscribe(
       result => {
         this.machines = result;

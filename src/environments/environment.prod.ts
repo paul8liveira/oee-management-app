@@ -6,5 +6,5 @@ export const environment = {
   feedURL: serverURL + ':userId/:channelId/:machineCode/:date/:limit/feed/mobile',
   userAddURL: serverURL + 'user',  
   channelListURL: serverURL + ':userId/channel',
-  machineListURL: serverURL + ':userId/machine/list',
+  machineListURL: serverURL + ':userId/:channelId/machine/list',
 };
