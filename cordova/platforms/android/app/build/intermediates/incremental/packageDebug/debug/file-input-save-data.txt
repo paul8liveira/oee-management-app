@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Thu Jun 21 00:14:02 BRT 2018
+#Wed Jul 04 21:02:55 BRT 2018
 5.base=D\:\\Sistemas\\Angular\\oee-management-app\\cordova\\platforms\\android\\app\\build\\intermediates\\assets\\debug
 42.base=D\:\\Sistemas\\Angular\\oee-management-app\\cordova\\platforms\\android\\app\\build\\intermediates\\assets\\debug
 32.set=ASSET
@@ -27,14 +27,14 @@
 35.set=ASSET
 21.file=D\:\\Sistemas\\Angular\\oee-management-app\\cordova\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\ionicons.19e65b89cee273a249fb.eot
 16.base=D\:\\Sistemas\\Angular\\oee-management-app\\cordova\\platforms\\android\\app\\build\\intermediates\\res\\debug\\resources-debug.ap_
-31.file=D\:\\Sistemas\\Angular\\oee-management-app\\cordova\\platforms\\android\\app\\build\\intermediates\\res\\debug\\resources-debug.ap_\\res\\drawable-port-xxhdpi-v4\\screen.png
+31.file=D\:\\Sistemas\\Angular\\oee-management-app\\cordova\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\main.1cbd7572cb92c194d8ac.js
 24.set=ANDROID_RESOURCE
 25.file=D\:\\Sistemas\\Angular\\oee-management-app\\cordova\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\ionicons.dd4781d1acc57ba4c480.ttf
 35.file=D\:\\Sistemas\\Angular\\oee-management-app\\cordova\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\ionicons.aff28a207631f39ee027.svg
 13.set=ANDROID_RESOURCE
 19.file=D\:\\Sistemas\\Angular\\oee-management-app\\cordova\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\polyfills.e2f50c782754114df0da.js
 2.base=D\:\\Sistemas\\Angular\\oee-management-app\\cordova\\platforms\\android\\app\\build\\intermediates\\res\\debug\\resources-debug.ap_
-29.file=D\:\\Sistemas\\Angular\\oee-management-app\\cordova\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\main.02394d473f01d1710565.js
+29.file=D\:\\Sistemas\\Angular\\oee-management-app\\cordova\\platforms\\android\\app\\build\\intermediates\\res\\debug\\resources-debug.ap_\\res\\mipmap-hdpi-v4\\icon.png
 11.file=D\:\\Sistemas\\Angular\\oee-management-app\\cordova\\platforms\\android\\app\\build\\intermediates\\res\\debug\\resources-debug.ap_\\res\\mipmap-ldpi-v4\\icon.png
 39.file=D\:\\Sistemas\\Angular\\oee-management-app\\cordova\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\cordova-js-src\\exec.js
 6.base=D\:\\Sistemas\\Angular\\oee-management-app\\cordova\\platforms\\android\\app\\build\\intermediates\\res\\debug\\resources-debug.ap_
@@ -42,7 +42,7 @@
 4.set=ASSET
 42.set=ASSET
 15.file=D\:\\Sistemas\\Angular\\oee-management-app\\cordova\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\cordova.js
-31.set=ANDROID_RESOURCE
+31.set=ASSET
 47.base=D\:\\Sistemas\\Angular\\oee-management-app\\cordova\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
 20.set=ASSET
 38.set=ASSET
@@ -111,11 +111,11 @@ count=48
 13.file=D\:\\Sistemas\\Angular\\oee-management-app\\cordova\\platforms\\android\\app\\build\\intermediates\\res\\debug\\resources-debug.ap_\\res\\drawable-land-xxxhdpi-v4\\screen.png
 8.base=D\:\\Sistemas\\Angular\\oee-management-app\\cordova\\platforms\\android\\app\\build\\intermediates\\res\\debug\\resources-debug.ap_
 11.set=ANDROID_RESOURCE
-29.set=ASSET
+29.set=ANDROID_RESOURCE
 45.base=D\:\\Sistemas\\Angular\\oee-management-app\\cordova\\platforms\\android\\app\\build\\intermediates\\assets\\debug
 18.set=ASSET
 21.base=D\:\\Sistemas\\Angular\\oee-management-app\\cordova\\platforms\\android\\app\\build\\intermediates\\assets\\debug
-31.base=D\:\\Sistemas\\Angular\\oee-management-app\\cordova\\platforms\\android\\app\\build\\intermediates\\res\\debug\\resources-debug.ap_
+31.base=D\:\\Sistemas\\Angular\\oee-management-app\\cordova\\platforms\\android\\app\\build\\intermediates\\assets\\debug
 2.set=ANDROID_RESOURCE
 40.set=ASSET
 3.file=D\:\\Sistemas\\Angular\\oee-management-app\\cordova\\platforms\\android\\app\\build\\intermediates\\res\\debug\\resources-debug.ap_\\res\\drawable-port-xhdpi-v4\\screen.png
@@ -125,7 +125,7 @@ count=48
 9.set=ASSET
 47.set=DEX
 19.base=D\:\\Sistemas\\Angular\\oee-management-app\\cordova\\platforms\\android\\app\\build\\intermediates\\assets\\debug
-29.base=D\:\\Sistemas\\Angular\\oee-management-app\\cordova\\platforms\\android\\app\\build\\intermediates\\assets\\debug
+29.base=D\:\\Sistemas\\Angular\\oee-management-app\\cordova\\platforms\\android\\app\\build\\intermediates\\res\\debug\\resources-debug.ap_
 7.file=D\:\\Sistemas\\Angular\\oee-management-app\\cordova\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\index.html
 11.base=D\:\\Sistemas\\Angular\\oee-management-app\\cordova\\platforms\\android\\app\\build\\intermediates\\res\\debug\\resources-debug.ap_
 44.file=D\:\\Sistemas\\Angular\\oee-management-app\\cordova\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\fontawesome-webfont.b06871f281fee6b241d6.ttf
@@ -134,7 +134,7 @@ count=48
 25.set=ASSET
 20.file=D\:\\Sistemas\\Angular\\oee-management-app\\cordova\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\Material-Design-Iconic-Font.b351bd62abcd96e924d9.ttf
 15.base=D\:\\Sistemas\\Angular\\oee-management-app\\cordova\\platforms\\android\\app\\build\\intermediates\\assets\\debug
-30.file=D\:\\Sistemas\\Angular\\oee-management-app\\cordova\\platforms\\android\\app\\build\\intermediates\\res\\debug\\resources-debug.ap_\\res\\mipmap-hdpi-v4\\icon.png
+30.file=D\:\\Sistemas\\Angular\\oee-management-app\\cordova\\platforms\\android\\app\\build\\intermediates\\res\\debug\\resources-debug.ap_\\res\\drawable-port-xxhdpi-v4\\screen.png
 14.set=ANDROID_RESOURCE
 24.file=D\:\\Sistemas\\Angular\\oee-management-app\\cordova\\platforms\\android\\app\\build\\intermediates\\res\\debug\\resources-debug.ap_\\res\\drawable-port-mdpi-v4\\screen.png
 34.file=D\:\\Sistemas\\Angular\\oee-management-app\\cordova\\platforms\\android\\app\\build\\intermediates\\res\\debug\\resources-debug.ap_\\res\\drawable-land-ldpi-v4\\screen.png
