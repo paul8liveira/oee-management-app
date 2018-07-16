@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Injector } from '@angular/core';
 import { BaseComponent } from '../base.component';
 import { HomeService } from '../../services/home.service';
 import * as ons from 'onsenui';
@@ -7,6 +7,7 @@ import { OnsNavigator } from 'ngx-onsenui';
 import { FeedComponent } from '../feed/feed.component';
 import { ChannelService } from '../../services/channel.service';
 import { MachineService } from '../../services/machine.service';
+import { AppComponent } from '../../app.component';
 
 
 @Component({
@@ -33,8 +34,9 @@ export class HomeComponent extends BaseComponent implements OnInit {
   constructor(private homeService: HomeService, 
               private _navigator: OnsNavigator,
               private channelService: ChannelService,
-              private machineService: MachineService) {
-    super();                   
+              private machineService: MachineService,
+              private inj: Injector) {
+    super();
   }
 
   ngOnInit() {
@@ -79,6 +81,10 @@ export class HomeComponent extends BaseComponent implements OnInit {
         ons.notification.alert(error);        
       });     
   }
+
+  openMenu() {
+    this.inj.get(AppComponent).menu.nativeElement.open();
+  }  
 
   pushFeed() {
     this._navigator.element.pushPage(FeedComponent); 

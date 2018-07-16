@@ -1,1 +1,18 @@
-<ons-navigator swipeable [page]="initialPage"></ons-navigator>
+<ons-splitter>
+    <ons-splitter-side #menu side="left" width="220px" [attr.collapse]="'collapse'" [attr.swipeable]="'swipeable'">
+        <ons-page>
+            <ons-list>  
+                <ons-list-item (click)="logout(login)" tappable>
+                    Desconectar
+                </ons-list-item>
+                <ons-list-header>Versão</ons-list-header>
+                <ons-list-item>
+                    {{version}}
+                </ons-list-item>
+            </ons-list>        
+        </ons-page>
+    </ons-splitter-side>
+    <ons-splitter-content>
+      <ons-navigator #navi swipeable [page]="initialPage"></ons-navigator>
+    </ons-splitter-content>
+  </ons-splitter>

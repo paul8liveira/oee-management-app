@@ -1,6 +1,6 @@
 {
   "name": "oee-management-app",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -36,7 +36,7 @@
     "@angular/language-service": "^5.2.11",
     "@types/jasmine": "^2.8.8",
     "@types/jasminewd2": "~2.0.2",
-    "@types/node": "^6.0.113",
+    "@types/node": "^6.0.114",
     "codelyzer": "^4.3.0",
     "jasmine-core": "~2.8.0",
     "jasmine-spec-reporter": "~4.2.1",

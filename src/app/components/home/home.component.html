@@ -1,11 +1,16 @@
 <ons-page>
   <ons-toolbar class="toolbar">
-    <div class="center">Medições do dia {{date}}</div>
+    <div class="center">Data {{date}}</div>
     <div class="right">
       <ons-toolbar-button>
         <ons-icon icon="md-search" size="30px" (click)="dialog.show()"></ons-icon>
       </ons-toolbar-button>
     </div>
+    <div class="left">
+      <ons-toolbar-button (click)="openMenu()">
+        <ons-icon icon="md-menu"></ons-icon>
+      </ons-toolbar-button>
+    </div>    
   </ons-toolbar>
   <ons-pull-hook height="64px" threshold-height="128px" (changestate)="onChangeState($event)" (action)="onAction($event)">
     {{hookMessage}}
@@ -34,12 +39,12 @@
     </ons-list-item>    
   </ons-list>
 
-  <ons-fab position="right bottom" class="fa-button">
+  <!-- <ons-fab position="right bottom" class="fa-button">
     <ons-icon
     (click)="pushFeed()"
     icon="md-edit">
     </ons-icon>
-  </ons-fab>
+  </ons-fab> -->
 
   <ons-dialog animation="default" cancelable #dialog>
       <div class="dialog-mask"></div>

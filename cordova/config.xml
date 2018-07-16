@@ -1,15 +1,14 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="br.com.startmeupsolutions.oeeapp" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="site.smup.oeeapp" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>StartMeUp!</name>
     <description>
         StartMeUp - Gerenciador de OEE.
     </description>
-    <author email="paul8liveira@gmail.com" href="http://paulooliveira.herokuapp.com/">
+    <author email="tec@smup.site" href="https://www.smup.site/">
         paul8liveira
     </author>
     <content src="index.html" />
     <access origin="https://oee-server.appspot.com" />
-    <access origin="http://www.paul8liveira.blog.br:8008" />
     <preference name="StatusBarBackgroundColor" value="#314289" />
     <platform name="android">
         <allow-intent href="market:*" />

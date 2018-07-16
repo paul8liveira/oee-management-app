@@ -8,10 +8,10 @@
   },
   "installed_plugins": {
     "cordova-plugin-statusbar": {
-      "PACKAGE_NAME": "br.com.startmeupsolutions.oeeapp"
+      "PACKAGE_NAME": "site.smup.oeeapp"
     },
     "cordova-plugin-whitelist": {
-      "PACKAGE_NAME": "br.com.startmeupsolutions.oeeapp"
+      "PACKAGE_NAME": "site.smup.oeeapp"
     }
   },
   "dependent_plugins": {}

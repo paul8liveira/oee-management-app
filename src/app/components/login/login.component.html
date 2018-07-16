@@ -1,17 +1,21 @@
 <ons-page>
   <ons-toolbar class="toolbar">
     <div class="center">Entrar</div>
-    <div class="right">
+    <!-- <div class="right">
       <ons-toolbar-button (click)="pushSignUp()">
         <ons-icon icon="md-account-circle" size="30px"></ons-icon>
       </ons-toolbar-button>      
-    </div>
+    </div> -->
   </ons-toolbar>
   <ons-progress-bar indeterminate *ngIf="loading" modifier="material"></ons-progress-bar>
-  <form 
+  <!-- <form 
     name="form" 
     (ngSubmit)="f.form.valid" #f="ngForm" 
-    class="needs-validation">
+    class="needs-validation"> -->
+    <form 
+    name="form" 
+    (ngSubmit)="login()" #f="ngForm" 
+    class="needs-validation">    
 
     <div class="login-form">
       <img src="./assets/images/logo.png" alt="" height="72">
@@ -42,14 +46,14 @@
         [disabled]="loading"
       >    
       <br><br>
-      <ons-button 
+      <button 
+        type="submit"
         modifier="large" 
-        class="login-button"
-        (click)="login()"
+        class="login-button button button--large button--material"
         [disabled]="loading || !f.form.valid">
         <span [ngStyle]="{'display': loading ? 'none' : 'block'}">Entrar</span>
         <ons-icon size="20px" spin icon="md-spinner" [ngStyle]="{'display': loading ? 'block' : 'none'}"></ons-icon>
-      </ons-button>
+      </button>      
       <br><br>
       <!-- <ons-button modifier="quiet" class="forgot-password">Esqueceu sua senha?</ons-button> -->
     </div>    
