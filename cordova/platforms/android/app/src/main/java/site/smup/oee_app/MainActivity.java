@@ -17,7 +17,7 @@
        under the License.
  */
 
-package site.smup.oeeapp;
+package site.smup.oee_app;
 
 import android.os.Bundle;
 import org.apache.cordova.*;

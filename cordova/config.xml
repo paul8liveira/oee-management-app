@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="site.smup.oeeapp" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="site.smup.oee-app" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>StartMeUp!</name>
     <description>
-        StartMeUp - Gerenciador de OEE.
+        StartMeUp - Monitoramento Online de Produção.
     </description>
     <author email="tec@smup.site" href="https://www.smup.site/">
         paul8liveira

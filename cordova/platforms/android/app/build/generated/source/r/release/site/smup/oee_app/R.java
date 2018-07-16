@@ -5,7 +5,7 @@
  * should not be modified by hand.
  */
 
-package site.smup.oeeapp;
+package site.smup.oee_app;
 
 public final class R {
   public static final class drawable {

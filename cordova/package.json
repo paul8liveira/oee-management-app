@@ -1,8 +1,8 @@
 {
-    "name": "site.smup.oeeapp",
+    "name": "site.smup.oee-app",
     "displayName": "StartMeUp!",
     "version": "1.0.0",
-    "description": "StartMeUp - Gerenciador de OEE.",
+    "description": "StartMeUp - Monitoramento Online de Produção.",
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"

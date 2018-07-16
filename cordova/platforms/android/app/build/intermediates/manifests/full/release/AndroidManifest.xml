@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="site.smup.oeeapp"
+    package="site.smup.oee_app"
     android:hardwareAccelerated="true"
     android:versionCode="10000"
     android:versionName="1.0.0" >
@@ -25,7 +25,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true" >
         <activity
-            android:name="site.smup.oeeapp.MainActivity"
+            android:name="site.smup.oee_app.MainActivity"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale"
             android:label="@string/activity_name"
             android:launchMode="singleTop"
