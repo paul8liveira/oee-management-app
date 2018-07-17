@@ -43,3 +43,5 @@ testem.log
 Thumbs.db
 
 .keystore
+
+/cordova/google-services.json
