@@ -1,4 +1,0 @@
-#Mon Jul 16 14:11:52 BRT 2018
-base.0=C\:\\Users\\paul8liveira\\source\\repos\\GitHub\\oee-management-app\\cordova\\platforms\\android\\app\\build\\intermediates\\transforms\\dex\\release\\0
-renamed.0=classes.dex
-file.0=C\:\\Users\\paul8liveira\\source\\repos\\GitHub\\oee-management-app\\cordova\\platforms\\android\\app\\build\\intermediates\\transforms\\dex\\release\\0\\classes.dex
