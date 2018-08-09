@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map'
 import { catchError } from 'rxjs/operators';
@@ -9,17 +9,19 @@ import { environment } from '../../environments/environment';
 
 @Injectable()
 export class ChannelService extends BaseService {
-    //token: string;
-
     constructor(private http: Http) {
         super();
-        // var currentUser = JSON.parse(localStorage.getItem('currentUser'));
-        // this.token = currentUser && currentUser.token;
     }
 
     list(userId: number): Observable<Channel[]> {
+        let headers = new Headers({ 
+            'Content-Type': 'application/json',
+            'x-access-token': this.getToken()
+        });
+        let options = new RequestOptions({headers: headers}); 
+
         let url = environment.channelListURL.replace(":userId", userId.toString());
-        return this.http.get(url)
+        return this.http.get(url, options)
             .map(res => res.json())
             .pipe(catchError(this.handleError));
     }    

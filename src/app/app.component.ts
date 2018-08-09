@@ -1,9 +1,9 @@
 import { Component, ViewChild } from '@angular/core';
 import { LoginComponent } from './components/login/login.component';
-import { UserService } from './services/user.service';
 import { HomeComponent } from './components/home/home.component';
 import { OnsSplitterSide, OnsNavigator } from '../../node_modules/ngx-onsenui';
 import { environment } from '../environments/environment';
+import { AuthenticationService } from './services/authentication.service';
 
 @Component({
   selector: 'app-root',
@@ -18,8 +18,8 @@ export class AppComponent {
   version = environment.version;
   
   initialPage: any;
-  constructor(private userService: UserService) {
-    this.initialPage = userService.isUserLoggedIn() ? HomeComponent : LoginComponent;
+  constructor(private authenticationService: AuthenticationService) {
+    this.initialPage = authenticationService.isUserLoggedIn() ? HomeComponent : LoginComponent;
   }
 
   loadPage(page) {
@@ -28,7 +28,7 @@ export class AppComponent {
   }  
 
   logout(page) {
-    this.userService.logout();
+    this.authenticationService.logout();
     this.menu.nativeElement.close();
     this.navi.nativeElement.resetToPage(page, { animation: 'fade' });
   }    

@@ -18,6 +18,7 @@ import { BaseComponent } from './components/base.component';
 import { FeedComponent } from './components/feed/feed.component';
 import { ChannelService } from './services/channel.service';
 import { MachineService } from './services/machine.service';
+import { AuthenticationService } from './services/authentication.service';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { MachineService } from './services/machine.service';
   ],
   providers: [
     UserService,
+    AuthenticationService,
     HomeService,
     ChannelService,
     MachineService

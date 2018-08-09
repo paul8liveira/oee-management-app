@@ -3,8 +3,11 @@
     <div class="center">Data {{date}}</div>
     <div class="right">
       <ons-toolbar-button>
-        <ons-icon icon="md-search" size="30px" (click)="dialog.show()"></ons-icon>
+        <ons-icon icon="{{machineState == 1 ? 'md-refresh-sync' : 'md-refresh-sync-off'}}" size="30px" (click)="dialog.show()"></ons-icon>      
       </ons-toolbar-button>
+      <ons-toolbar-button>
+        <ons-icon icon="md-search" size="30px" (click)="dialog.show()"></ons-icon>      
+      </ons-toolbar-button>      
     </div>
     <div class="left">
       <ons-toolbar-button (click)="openMenu()">
@@ -17,8 +20,9 @@
   </ons-pull-hook>
 
   <ons-progress-bar indeterminate *ngIf="loading" modifier="material"></ons-progress-bar>
+  
   <ons-list>     
-    <ons-list-item tappable *ngFor="let feed of feeds; let i = index">
+    <ons-list-item *ngFor="let feed of feeds; let i = index">
       <div class="left">
         <div class="list-item__thumbnail" style="background-color:lightgrey">
           <div class="icon-container">
@@ -36,6 +40,10 @@
           <span *ngIf="feed.field5_desc">{{feed.field5_desc}}: {{feed.field5}} </span>            
         </span>
       </div>
+    </ons-list-item>  
+    
+    <ons-list-item modifier="nodivider" *ngIf="feeds.length == 0">
+      Nenhuma medição encontrada com os filtros informados
     </ons-list-item>    
   </ons-list>
 

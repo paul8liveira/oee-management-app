@@ -13,6 +13,9 @@ export class BaseComponent implements OnInit {
         let currentUser = localStorage.getItem('currentUser');
         return JSON.parse(currentUser); 
     }
+    getToken() {
+        return localStorage.getItem('token') || null;
+    } 
 
     getCurrentDate() {
         let now = new Date();

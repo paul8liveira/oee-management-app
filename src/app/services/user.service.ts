@@ -16,38 +16,14 @@ export class UserService extends BaseService {
     super();
   }
 
-  isUserLoggedIn() {
-    if(localStorage.getItem('currentUser')) {
-      return true;
-    }
-    return false;
-  }
-
   signup(user: User): Observable<User> {
-      let headers = new Headers({ 'Content-Type': 'application/json' });                
-      return this.http.post(environment.userAddURL, 
-          JSON.stringify(user), { headers: headers })
-          .map(res => res.json())
-          .pipe(catchError(this.handleError));            
-  }  
-
-  login(user: User): Observable<Login> {
-      let headers = new Headers({ 'Content-Type': 'application/json' });
-              
-      return this.http.post(environment.userAuthenticationURL, 
-          JSON.stringify(user), { headers: headers })
-          .map(res => {
-              let resJson = res.json();
-              if(resJson.success) {
-                  this.token = resJson.token;
-                  localStorage.setItem('currentUser', JSON.stringify(resJson));                    
-              }
-              return resJson;
-          });
-  }
-
-  logout(): void {
-      this.token = null;
-      localStorage.removeItem('currentUser');
+    let headers = new Headers({ 
+      'Content-Type': 'application/json',
+      'x-access-token': this.getToken()
+    });                
+    return this.http.post(environment.userAddURL, 
+        JSON.stringify(user), { headers: headers })
+        .map(res => res.json())
+        .pipe(catchError(this.handleError));            
   }  
 }

@@ -21,6 +21,7 @@ export class HomeComponent extends BaseComponent implements OnInit {
 
   machines: Array<any> = [];
   machineCode: string;
+  machineState: number;
 
   loading: boolean = false;
   date: string;
@@ -113,6 +114,8 @@ export class HomeComponent extends BaseComponent implements OnInit {
       result => {
         this.machines = result;
         this.machineCode = this.machines[0].code;      
+        this.machineState = this.machines[0].state;    
+        console.log(this.machineState);  
         
         if(this.firstLoad) {
           this.getData();
