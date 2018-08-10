@@ -17,10 +17,10 @@ export class AuthenticationService extends BaseService {
 
     isUserLoggedIn() {
         if(localStorage.getItem('token')) {
-          return true;
+            return true;
         }
-        return false;
-    }    
+        return false;       
+    }
 
     login(user: User): Observable<Login> {
         let headers = new Headers({ 'Content-Type': 'application/json' });

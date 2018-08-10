@@ -68,6 +68,7 @@ export class HomeComponent extends BaseComponent implements OnInit {
   }  
 
   getData(resetLimit: boolean = false) {
+    this.machineState = this.machines.find(x => x.code === this.machineCode).state;
     this.limit += resetLimit ? -this.limit+10 : 10;
     this.loading = true;
 
@@ -100,7 +101,7 @@ export class HomeComponent extends BaseComponent implements OnInit {
         this.getMachines();
       },
       error => {
-        ons.notification.toast(error, {timeout: 5000});
+        ons.notification.toast(error || "Falha ao carregar lista de canais", {timeout: 5000});
       });     
   }  
   onSelectChannel(channelId: number) {
@@ -113,10 +114,8 @@ export class HomeComponent extends BaseComponent implements OnInit {
     .subscribe(
       result => {
         this.machines = result;
-        this.machineCode = this.machines[0].code;      
-        this.machineState = this.machines[0].state;    
-        console.log(this.machineState);  
-        
+        this.machineCode = this.machines[0].code;    
+         
         if(this.firstLoad) {
           this.getData();
           this.firstLoad = false;
@@ -128,4 +127,15 @@ export class HomeComponent extends BaseComponent implements OnInit {
       });     
   }  
 
+  changeState(state: number) {
+    this.machineService.changeState(this.machineCode, state)
+    .subscribe(
+      result => {
+        this.machineState = state;
+        ons.notification.toast("Máquina " + result.code + (state == 1 ? " ativada" : " desativada"), {timeout: 3000});                      
+      },
+      error => {
+        ons.notification.toast(error, {timeout: 5000});
+      }); 
+  }
 }

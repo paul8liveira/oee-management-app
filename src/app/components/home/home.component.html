@@ -3,8 +3,10 @@
     <div class="center">Data {{date}}</div>
     <div class="right">
       <ons-toolbar-button>
-        <ons-icon icon="{{machineState == 1 ? 'md-refresh-sync' : 'md-refresh-sync-off'}}" size="30px" (click)="dialog.show()"></ons-icon>      
+        <ons-icon [style.display]="machineState == 0 ? 'none': 'block'" icon="md-refresh-sync" size="30px" (click)="changeState(0)"></ons-icon>     
+        <ons-icon [style.display]="machineState == 1 ? 'none': 'block'" icon="md-refresh-sync-off" size="30px" (click)="changeState(1)"></ons-icon> 
       </ons-toolbar-button>
+
       <ons-toolbar-button>
         <ons-icon icon="md-search" size="30px" (click)="dialog.show()"></ons-icon>      
       </ons-toolbar-button>      

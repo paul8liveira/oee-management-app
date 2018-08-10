@@ -27,4 +27,19 @@ export class MachineService extends BaseService {
             .map(res => res.json())
             .pipe(catchError(this.handleError));
     }
+
+    changeState(machineCode: string, state: number): Observable<Machine> {
+        let headers = new Headers({ 
+          'Content-Type': 'application/json',
+          'x-access-token': this.getToken()
+        });
+        let machine = {
+            code: machineCode,
+            state: state
+        };
+        return this.http.post(environment.machineChangeStateURL, 
+            JSON.stringify(machine), { headers: headers })
+            .map(res => res.json())
+            .pipe(catchError(this.handleError));            
+      }    
 }

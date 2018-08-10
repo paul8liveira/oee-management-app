@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { OnsSplitterSide, OnsNavigator } from '../../node_modules/ngx-onsenui';
@@ -10,7 +10,7 @@ import { AuthenticationService } from './services/authentication.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   @ViewChild('menu') public menu: OnsSplitterSide;
   @ViewChild('navi') private navi: OnsNavigator;
 
@@ -18,9 +18,12 @@ export class AppComponent {
   version = environment.version;
   
   initialPage: any;
-  constructor(private authenticationService: AuthenticationService) {
-    this.initialPage = authenticationService.isUserLoggedIn() ? HomeComponent : LoginComponent;
+  constructor(private authenticationService: AuthenticationService) {    
   }
+
+  ngOnInit(): void {
+    this.initialPage = this.authenticationService.isUserLoggedIn() ? HomeComponent : LoginComponent;
+  }  
 
   loadPage(page) {
     this.menu.nativeElement.close();

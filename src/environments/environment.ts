@@ -13,4 +13,5 @@ export const environment = {
   channelListURL: serverURL + ':userId/channel',
   machineListURL: serverURL + ':userId/:channelId/machine/list', 
   userGetDataByTokenPassURL: serverURL + 'user/data',
+  machineChangeStateURL: serverURL + 'machine/state',
 };
