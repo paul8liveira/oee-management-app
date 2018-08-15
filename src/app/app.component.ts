@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
 
   login = LoginComponent;
   version = environment.version;
-  
+    
   initialPage: any;
   constructor(private authenticationService: AuthenticationService) {    
   }
@@ -34,5 +34,5 @@ export class AppComponent implements OnInit {
     this.authenticationService.logout();
     this.menu.nativeElement.close();
     this.navi.nativeElement.resetToPage(page, { animation: 'fade' });
-  }    
+  }  
 }

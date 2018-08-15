@@ -1,15 +1,19 @@
 <ons-splitter>
     <ons-splitter-side #menu side="left" width="220px" [attr.collapse]="'collapse'" [attr.swipeable]="'swipeable'">
         <ons-page>
-            <ons-list>  
-                <ons-list-item (click)="logout(login)" tappable>
-                    Desconectar
-                </ons-list-item>
-                <ons-list-header>Versão</ons-list-header>
-                <ons-list-item>
-                    {{version}}
-                </ons-list-item>
-            </ons-list>        
+            <div class="content">
+                <ons-list>    
+                    <ons-list-item (click)="logout(login)" tappable>
+                        <div class="left">
+                            <ons-icon icon="md-power-off" class="list-item__icon"></ons-icon>
+                        </div>
+                        <div class="center">
+                            Desconectar
+                        </div>
+                    </ons-list-item>
+                    <ons-list-header>Versão {{version}}</ons-list-header>                    
+                </ons-list>    
+            </div>        
         </ons-page>
     </ons-splitter-side>
     <ons-splitter-content>

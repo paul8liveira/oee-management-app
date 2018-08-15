@@ -6,7 +6,7 @@
 const serverURL = 'http://localhost:3000/oee/api/';
 export const environment = {
   production: false,
-  version: '0.0.1',
+  version: '0.0.2',
   userAuthenticationURL: serverURL + 'auth',
   feedURL: serverURL + ':userId/:channelId/:machineCode/:date/:limit/feed/mobile',
   userAddURL: serverURL + 'user',
