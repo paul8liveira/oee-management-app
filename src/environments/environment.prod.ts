@@ -1,7 +1,7 @@
 const serverURL = 'https://oee-server.appspot.com/api/';
 export const environment = {
   production: true,
-  version: '0.0.2',
+  version: '0.0.3',
   userAuthenticationURL: serverURL + 'auth',
   feedURL: serverURL + ':userId/:channelId/:machineCode/:date/:limit/feed/mobile',
   userAddURL: serverURL + 'user',  
