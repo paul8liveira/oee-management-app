@@ -1,0 +1,78 @@
+<ons-page>
+  <ons-toolbar class="toolbar">
+    <div class="left">
+      <ons-back-button modifier="material">Voltar</ons-back-button>
+    </div>
+    <div class="center">Produção do dia</div>
+    <div class="right">
+      <ons-toolbar-button>
+        <ons-icon icon="md-refresh-sync" size="30px" (click)="refreshProductionCount()"></ons-icon>        
+      </ons-toolbar-button>
+    </div>     
+  </ons-toolbar>
+  <ons-progress-bar indeterminate *ngIf="loading" modifier="material"></ons-progress-bar>
+
+  <div class="table-responsive margin-top-5px" style="overflow-x:hidden">
+    <div class="row">
+      <div class="col" *ngIf="productionCount[0]?.length > 0">
+        <table class="table table-sm table-hover">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Hora</th>
+              <th scope="col" *ngFor="let col of productionCount[2]">{{col.name}}</th>
+              <th scope="col">{{productionCount[0][0].tipo}}</th>
+              <th scope="col">Taxa/Min</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let p of productionCount[0]">
+              <th>{{p.hora}}</th>
+              <td *ngFor="let col of productionCount[2]">{{p[col.code]}}</td>
+              <td>{{p.total}}</td>
+              <td>{{p.taxa}}</td>
+            </tr>
+            <tr>
+              <th>&nbsp;</th>
+              <td *ngFor="let col of productionCount[2]"></td>
+              <td><b>Total<br/>{{productionCount[1].totalHora}}</b></td>
+              <td><b>Tx. média<br/>{{productionCount[1].mediaTaxa}}</b></td>
+            </tr>             
+          </tbody>
+        </table> 
+      </div>
+      <div class="col" *ngIf="productionCount1[0]?.length > 0">
+        <table class="table table-sm table-hover">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Hora</th>
+              <th scope="col" *ngFor="let col of productionCount1[2]">{{col.name}}</th>
+              <th scope="col">{{productionCount1[0][0].tipo}}</th>
+              <th scope="col">Taxa/Min</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let p of productionCount1[0]">
+              <th>{{p.hora}}</th>
+              <td *ngFor="let col of productionCount1[2]">{{p[col.code]}}</td>
+              <td>{{p.total}}</td>
+              <td>{{p.taxa}}</td>
+            </tr>
+            <tr>
+              <th>&nbsp;</th>
+              <td *ngFor="let col of productionCount1[2]"></td>
+              <td><b>Total<br/>{{productionCount1[1].totalHora}}</b></td>
+              <td><b>Tx. média<br/>{{productionCount1[1].mediaTaxa}}</b></td>
+            </tr>             
+          </tbody>
+        </table> 
+      </div>                 
+  </div>   
+  
+  <ons-list *ngIf="productionCount[0]?.length == 0 && productionCount1[0]?.length == 0">         
+    <ons-list-item modifier="nodivider">
+      Nenhuma medição encontrada com os filtros informados
+    </ons-list-item>    
+  </ons-list>     
+</div> 
+
+</ons-page>

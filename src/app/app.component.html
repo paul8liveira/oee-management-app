@@ -11,6 +11,14 @@
                             Desconectar
                         </div>
                     </ons-list-item>
+                    <ons-list-item (click)="loadPage(production)" tappable>
+                        <div class="left">
+                            <ons-icon icon="md-chart" class="list-item__icon"></ons-icon>
+                        </div>
+                        <div class="center">
+                            Produção
+                        </div>
+                    </ons-list-item>                    
                     <ons-list-header>Versão {{version}}</ons-list-header>                    
                 </ons-list>    
             </div>        

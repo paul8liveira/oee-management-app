@@ -4,6 +4,7 @@ import { HomeComponent } from './components/home/home.component';
 import { OnsSplitterSide, OnsNavigator } from '../../node_modules/ngx-onsenui';
 import { environment } from '../environments/environment';
 import { AuthenticationService } from './services/authentication.service';
+import { ProductionComponent } from './components/production/production.component';
 
 @Component({
   selector: 'app-root',
@@ -15,6 +16,7 @@ export class AppComponent implements OnInit {
   @ViewChild('navi') private navi: OnsNavigator;
 
   login = LoginComponent;
+  production = ProductionComponent;
   version = environment.version;
     
   initialPage: any;
@@ -27,7 +29,7 @@ export class AppComponent implements OnInit {
 
   loadPage(page) {
     this.menu.nativeElement.close();
-    this.navi.nativeElement.resetToPage(page, { animation: 'fade' });
+    this.navi.nativeElement.pushPage(page, { animation: 'fade' });
   }  
 
   logout(page) {

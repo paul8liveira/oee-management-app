@@ -39,5 +39,26 @@ export class BaseComponent implements OnInit {
         return (hour.toString().length == 1 ? "0"+hour : hour) 
         + ":" + 
         (minute.toString().length == 1 ? "0"+minute : minute);
-    }        
+    }      
+    
+    //2018-06-15 08:00:00
+    formatDateTimeMySQL(date:string, initial: boolean) {
+        let curUser = this.getCurrentUser();
+        let splitDate = date.split("/");
+        let day = splitDate[0];
+        let month = splitDate[1];
+        let year = splitDate[2];
+        let hour_ini = curUser.initial_turn+":00"; 
+        let hour_fin = curUser.final_turn+":00"; 
+
+        return (
+            year 
+            + "-" + 
+            (month.toString().length == 1 ? "0"+month : month) 
+            + "-" + 
+            (day.toString().length == 1 ? "0"+day : day)
+            + " " + 
+            (initial ? hour_ini : hour_fin) 
+        );
+    }     
 }

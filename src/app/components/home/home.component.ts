@@ -41,7 +41,7 @@ export class HomeComponent extends BaseComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.date = this.getCurrentDate();
+    this.date = this.getCurrentDate();    
     this.getChannels();
   }
 
@@ -71,6 +71,8 @@ export class HomeComponent extends BaseComponent implements OnInit {
     this.machineState = this.machines.find(x => x.code === this.machineCode).state;
     this.limit += resetLimit ? -this.limit+10 : 10;
     this.loading = true;
+    localStorage.setItem('filterChannelId', this.channelId.toString());
+    localStorage.setItem("filterDate", this.date);
 
     this.homeService.listFeed(this.getCurrentUser().id, this.channelId, this.machineCode, this.setCurrentDateNoSlash(this.date), this.limit)
     .subscribe(
@@ -98,6 +100,7 @@ export class HomeComponent extends BaseComponent implements OnInit {
       result => {
         this.channels = result.filter(f => f.active.toString() === "Ativo");
         this.channelId = this.channels[0].id;
+        localStorage.setItem('filterChannelId', this.channelId.toString());
         this.getMachines();
       },
       error => {

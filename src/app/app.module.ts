@@ -19,6 +19,7 @@ import { FeedComponent } from './components/feed/feed.component';
 import { ChannelService } from './services/channel.service';
 import { MachineService } from './services/machine.service';
 import { AuthenticationService } from './services/authentication.service';
+import { ProductionComponent } from './components/production/production.component';
 
 @NgModule({
   declarations: [
@@ -28,12 +29,14 @@ import { AuthenticationService } from './services/authentication.service';
     LoginComponent,
     SignupComponent,
     FeedComponent,
+    ProductionComponent
   ],
   entryComponents: [
     LoginComponent,
     SignupComponent, 
     HomeComponent, 
-    FeedComponent
+    FeedComponent,
+    ProductionComponent
   ],
   imports: [
     Routing,
