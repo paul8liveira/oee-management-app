@@ -43,13 +43,12 @@ export class BaseComponent implements OnInit {
     
     //2018-06-15 08:00:00
     formatDateTimeMySQL(date:string, initial: boolean) {
-        let curUser = this.getCurrentUser();
         let splitDate = date.split("/");
         let day = splitDate[0];
         let month = splitDate[1];
         let year = splitDate[2];
-        let hour_ini = curUser.initial_turn+":00"; 
-        let hour_fin = curUser.final_turn+":00"; 
+        let hour_ini = "06:00:00"; 
+        let hour_fin = "23:59:59"; 
 
         return (
             year 

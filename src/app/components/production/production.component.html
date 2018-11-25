@@ -12,10 +12,10 @@
   </ons-toolbar>
   <ons-progress-bar indeterminate *ngIf="loading" modifier="material"></ons-progress-bar>
 
-  <div class="table-responsive margin-top-5px" style="overflow-x:hidden">
+  <div class="margin-top-5px">
     <div class="row">
       <div class="col" *ngIf="productionCount[0]?.length > 0">
-        <table class="table table-sm table-hover">
+        <table class="table table-sm table-hover" style="width:100%">
           <thead class="thead-dark">
             <tr>
               <th scope="col">Hora</th>
@@ -26,22 +26,22 @@
           </thead>
           <tbody>
             <tr *ngFor="let p of productionCount[0]">
-              <th>{{p.hora}}</th>
-              <td *ngFor="let col of productionCount[2]">{{p[col.code]}}</td>
-              <td>{{p.total}}</td>
-              <td>{{p.taxa}}</td>
+              <th scope="col">{{p.hora_short}}</th>
+              <td style="text-align: center" *ngFor="let col of productionCount[2]">{{p[col.code]}}</td>
+              <td style="text-align: center">{{p.total}}</td>
+              <td style="text-align: center">{{p.taxa}}</td>
             </tr>
             <tr>
-              <th>&nbsp;</th>
-              <td *ngFor="let col of productionCount[2]"></td>
-              <td><b>Total<br/>{{productionCount[1].totalHora}}</b></td>
-              <td><b>Tx. média<br/>{{productionCount[1].mediaTaxa}}</b></td>
+              <th scope="col">&nbsp;</th>
+              <th scope="col" *ngFor="let col of productionCount[2]"></th>
+              <th scope="col">Total<br/>{{productionCount[1].totalHora}}</th>
+              <th scope="col">Tx. média<br/>{{productionCount[1].mediaTaxa}}</th>
             </tr>             
           </tbody>
         </table> 
       </div>
-      <div class="col" *ngIf="productionCount1[0]?.length > 0">
-        <table class="table table-sm table-hover">
+      <div class="col margin-top-5px" *ngIf="productionCount1[0]?.length > 0" style="border-top: 1px solid">
+        <table class="table table-sm table-hover" style="width:100%">
           <thead class="thead-dark">
             <tr>
               <th scope="col">Hora</th>
@@ -52,16 +52,16 @@
           </thead>
           <tbody>
             <tr *ngFor="let p of productionCount1[0]">
-              <th>{{p.hora}}</th>
-              <td *ngFor="let col of productionCount1[2]">{{p[col.code]}}</td>
-              <td>{{p.total}}</td>
-              <td>{{p.taxa}}</td>
+              <th scope="col">{{p.hora_short}}</th>
+              <td style="text-align: center" *ngFor="let col of productionCount1[2]">{{p[col.code]}}</td>
+              <td style="text-align: center">{{p.total}}</td>
+              <td style="text-align: center">{{p.taxa}}</td>
             </tr>
             <tr>
-              <th>&nbsp;</th>
-              <td *ngFor="let col of productionCount1[2]"></td>
-              <td><b>Total<br/>{{productionCount1[1].totalHora}}</b></td>
-              <td><b>Tx. média<br/>{{productionCount1[1].mediaTaxa}}</b></td>
+              <th scope="col">&nbsp;</th>
+              <th scope="col" *ngFor="let col of productionCount1[2]"></th>
+              <th scope="col">Total<br/>{{productionCount1[1].totalHora}}</th>
+              <th scope="col">Tx. média<br/>{{productionCount1[1].mediaTaxa}}</th>
             </tr>             
           </tbody>
         </table> 
