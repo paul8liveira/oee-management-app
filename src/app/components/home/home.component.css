@@ -1,9 +1,16 @@
+.speed-dial-item  {
+  background-color: #3D5FA9;
+}
+.speed-dial-item * {
+  color: #FFFFFF;
+}
+
 .fa-button {
-    background-color: #A7CD44;
+    background-color: #3D5FA9;
   }
   
   .fa-button:active {
-    background-color: #A7CD44;
+    background-color: #3D5FA9;
   }
   
   .fa-button * {

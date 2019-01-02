@@ -7,16 +7,22 @@
     </div>    
     <div class="center">Data {{date}}</div>
     <div class="right">
-      <ons-toolbar-button>
-        <ons-icon [style.display]="machineState == 0 ? 'none': 'block'" icon="md-refresh-sync" size="30px" (click)="changeState(0)"></ons-icon>     
-        <ons-icon [style.display]="machineState == 1 ? 'none': 'block'" icon="md-refresh-sync-off" size="30px" (click)="changeState(1)"></ons-icon>         
-      </ons-toolbar-button>
-
-      <ons-toolbar-button>
-        <ons-icon icon="md-search" size="30px" (click)="dialog.show()"></ons-icon>      
-      </ons-toolbar-button>
+      <ons-if platform="ios other">
+        <ons-toolbar-button (click)="dialog.show()">Filtrar</ons-toolbar-button>
+      </ons-if>  
+      <ons-if platform="android">
+        <ons-toolbar-button>
+          <ons-icon [style.display]="machineState == 0 ? 'none': 'block'" icon="md-refresh-sync" size="30px" (click)="changeState(0)"></ons-icon>     
+          <ons-icon [style.display]="machineState == 1 ? 'none': 'block'" icon="md-refresh-sync-off" size="30px" (click)="changeState(1)"></ons-icon>         
+        </ons-toolbar-button>
+    
+        <ons-toolbar-button>
+          <ons-icon icon="md-search" size="30px" (click)="dialog.show()"></ons-icon>      
+        </ons-toolbar-button>          
+      </ons-if>            
     </div>    
   </ons-toolbar>
+
   <ons-pull-hook height="64px" threshold-height="128px" (changestate)="onChangeState($event)" (action)="onAction($event)">
     {{hookMessage}}
   </ons-pull-hook>
@@ -55,6 +61,18 @@
     icon="md-edit">
     </ons-icon>
   </ons-fab> -->
+
+  <ons-speed-dial position="bottom right" direction="up">
+    <ons-fab class="fa-button">
+      <ons-icon icon="md-menu"></ons-icon>
+    </ons-fab>
+    <ons-speed-dial-item class="speed-dial-item">
+      <ons-icon icon="md-caret-down" (click)="scrollBottom()"></ons-icon>
+    </ons-speed-dial-item>
+    <ons-speed-dial-item class="speed-dial-item">
+      <ons-icon icon="md-caret-up" (click)="scrollUp()"></ons-icon>
+    </ons-speed-dial-item>
+  </ons-speed-dial>  
 
   <ons-dialog animation="default" cancelable #dialog>
       <div class="dialog-mask"></div>
