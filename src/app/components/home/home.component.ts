@@ -149,6 +149,5 @@ export class HomeComponent extends BaseComponent implements OnInit {
   scrollBottom() {
     var pageContent = document.getElementsByClassName("page__content");
     pageContent[2].scrollTop = window.innerHeight + pageContent[2].scrollHeight;
-    console.log(pageContent);
   }  
 }
