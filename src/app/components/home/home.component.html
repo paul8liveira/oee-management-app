@@ -1,4 +1,4 @@
-<ons-page>
+<ons-page id="homePage">
   <ons-toolbar class="toolbar">
     <div class="left">
       <ons-toolbar-button (click)="openMenu()">
@@ -55,26 +55,12 @@
     </ons-list-item>    
   </ons-list>
 
-  <!-- <ons-fab position="right bottom" class="fa-button">
+  <ons-fab position="right bottom" class="fa-button" modifier="mini modifier2">
     <ons-icon
-    (click)="pushFeed()"
-    icon="md-edit">
+    (click)="scrollUp()"
+    icon="md-caret-up">
     </ons-icon>
-  </ons-fab> -->
-
-  <ons-if platform="android">
-    <ons-speed-dial position="bottom right" direction="up">
-        <ons-fab class="fa-button">
-          <ons-icon icon="md-menu"></ons-icon>
-        </ons-fab>
-        <ons-speed-dial-item class="speed-dial-item">
-          <ons-icon icon="md-caret-down" (click)="scrollBottom()"></ons-icon>
-        </ons-speed-dial-item>
-        <ons-speed-dial-item class="speed-dial-item">
-          <ons-icon icon="md-caret-up" (click)="scrollUp()"></ons-icon>
-        </ons-speed-dial-item>
-      </ons-speed-dial>  
-  </ons-if>
+  </ons-fab>
 
   <ons-dialog animation="default" cancelable #dialog>
       <div class="dialog-mask"></div>
