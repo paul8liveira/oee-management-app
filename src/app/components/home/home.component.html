@@ -29,31 +29,37 @@
 
   <ons-progress-bar indeterminate *ngIf="loading" modifier="material"></ons-progress-bar>
   
-  <ons-list>     
-    <ons-list-item *ngFor="let feed of feeds; let i = index">
-      <div class="left">
-        <div class="list-item__thumbnail" style="background-color:lightgrey">
-          <div class="icon-container">
-           <div class="icon-text">{{feed.mobile_name}}</div>
+  <production-chart></production-chart>
+
+  <ons-card>
+    <div class="content">
+      <ons-list>     
+        <ons-list-item *ngFor="let feed of feeds; let i = index">
+          <div class="left">
+            <div class="list-item__thumbnail" style="background-color:lightgrey">
+              <div class="icon-container">
+               <div class="icon-text">{{feed.mobile_name}}</div>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      <div class="center">
-        <span class="list-item__title">{{feed.oee}} - {{feed.time}}</span>
-        <span class="list-item__subtitle">
-          <span *ngIf="feed.field1_desc">{{feed.field1_desc}}: {{feed.field1}}</span>  
-          <span *ngIf="feed.field2_desc">{{feed.field2_desc}}: {{feed.field2}}</span>  
-          <span *ngIf="feed.field3_desc">{{feed.field3_desc}}: {{feed.field3}}</span>  
-          <span *ngIf="feed.field4_desc">{{feed.field4_desc}}: {{feed.field4}}</span>  
-          <span *ngIf="feed.field5_desc">{{feed.field5_desc}}: {{feed.field5}} </span>            
-        </span>
-      </div>
-    </ons-list-item>  
-    
-    <ons-list-item modifier="nodivider" *ngIf="feeds.length == 0">
-      Nenhuma medição encontrada com os filtros informados
-    </ons-list-item>    
-  </ons-list>
+          <div class="center">
+            <span class="list-item__title">{{feed.oee}} - {{feed.time}}</span>
+            <span class="list-item__subtitle">
+              <span *ngIf="feed.field1_desc">{{feed.field1_desc}}: {{feed.field1}}</span>  
+              <span *ngIf="feed.field2_desc">{{feed.field2_desc}}: {{feed.field2}}</span>  
+              <span *ngIf="feed.field3_desc">{{feed.field3_desc}}: {{feed.field3}}</span>  
+              <span *ngIf="feed.field4_desc">{{feed.field4_desc}}: {{feed.field4}}</span>  
+              <span *ngIf="feed.field5_desc">{{feed.field5_desc}}: {{feed.field5}} </span>            
+            </span>
+          </div>
+        </ons-list-item>  
+        
+        <ons-list-item modifier="nodivider" *ngIf="feeds.length == 0">
+          Nenhuma medição encontrada com os filtros informados
+        </ons-list-item>    
+      </ons-list> 
+    </div>
+  </ons-card>  
 
   <ons-fab position="right bottom" class="fa-button" modifier="mini modifier2">
     <ons-icon

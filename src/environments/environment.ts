@@ -14,5 +14,5 @@ export const environment = {
   machineListURL: `${serverURL}:userId/:channelId/machine/list`,
   userGetDataByTokenPassURL: `${serverURL}user/data`,
   machineChangeStateURL: `${serverURL}machine/state`,
-  productionURL: `${serverURL}feed/production`,
+  productionURL: `${serverURL}feed/production/v2`,
 };

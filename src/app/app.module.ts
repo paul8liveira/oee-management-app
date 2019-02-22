@@ -6,6 +6,7 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { OnsenModule } from 'ngx-onsenui';
 import {NgxMaskModule} from 'ngx-mask'
+import { AmChartsModule } from "@amcharts/amcharts3-angular";
 
 import { Routing } from './app.routes';
 import { AppComponent } from './app.component';
@@ -20,6 +21,7 @@ import { ChannelService } from './services/channel.service';
 import { MachineService } from './services/machine.service';
 import { AuthenticationService } from './services/authentication.service';
 import { ProductionComponent } from './components/production/production.component';
+import { ProductionChartComponent } from './components/home/production.chart/production.chart.component';
 
 @NgModule({
   declarations: [
@@ -29,14 +31,16 @@ import { ProductionComponent } from './components/production/production.componen
     LoginComponent,
     SignupComponent,
     FeedComponent,
-    ProductionComponent
+    ProductionComponent,
+    ProductionChartComponent
   ],
   entryComponents: [
     LoginComponent,
     SignupComponent, 
     HomeComponent, 
     FeedComponent,
-    ProductionComponent
+    ProductionComponent,
+    ProductionChartComponent
   ],
   imports: [
     Routing,
@@ -46,7 +50,8 @@ import { ProductionComponent } from './components/production/production.componen
     CommonModule,
     FormsModule,
     OnsenModule,
-    NgxMaskModule.forRoot()
+    NgxMaskModule.forRoot(),
+    AmChartsModule
   ],
   providers: [
     UserService,

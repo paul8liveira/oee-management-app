@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
 import { HttpErrorResponse } from '@angular/common/http';
-import { Http } from '@angular/http';
 
 @Injectable()
 export class BaseService {

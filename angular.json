@@ -25,7 +25,12 @@
               "node_modules/onsenui/css/onsen-css-components.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/js/amcharts/amcharts.js",
+              "src/assets/js/amcharts/light.js",
+              "src/assets/js/amcharts/gauge.js",
+              "src/assets/js/amcharts/pt.js"  
+            ]
           },
           "configurations": {
             "production": {

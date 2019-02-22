@@ -14,7 +14,6 @@ export class ProductionComponent extends BaseComponent implements OnInit {
   channelId: number;
   date: string;
   productionCount: Array<any> = [];
-  productionCount1: Array<any> = [];  
 
   constructor(private homeService: HomeService) {
     super();
@@ -27,60 +26,64 @@ export class ProductionComponent extends BaseComponent implements OnInit {
   }
 
   refreshProductionCount() {    
-    this.getProductionCount(1);
-    this.getProductionCount(2);
+    this.getProductionCount();
   }
 
   //ja tenho que refazer toda essa pagina ta td uma bosta...
-  getProductionCount(position: number) {
-    this.loading = true;
+  //agora ja ta um pouco melhor, mas sempre da pra melhorar
+  getProductionCount() {  
     this.homeService.productionCount(this.formatDateTimeMySQL(this.date, true)
-                                    , this.formatDateTimeMySQL(this.date, false)
-                                    , this.channelId
-                                    , position)
+                                  , this.formatDateTimeMySQL(this.date, false)
+                                  , this.channelId)
     .subscribe(
       result => {
-        if(position === 1)
-          this.productionCount = [];
-        else
-          this.productionCount1 = [];
+        this.productionCount = [];  
 
-        //pega colunas para exibir na lista
-        let columsArray = [];
-        for(let col in result[0]) {
-          if(col.indexOf("COL_") > -1)
-            columsArray.push({
-              code: col,
-              name: col.replace("COL_","")
-          });
-        }
+        //rejeito result set "ok" do mysql
+        let validResultSet = [];
+        for(let i = 0; i < result.length; i++) {
+          if(result[i].length > 0) 
+            validResultSet.push(result[i]);
+        }        
 
-        let totalizador = {
-          totalHora : 0,
-          mediaTaxa: 0
-        };
+        validResultSet.forEach(table => {
+          //pega primeira linha para montar dados de colunas
+          let first = table[0];
+          
+          //monta nome das colunas das maquinas
+          let columns = [];
+          for(let col in first) {
+            if(col.indexOf("COL_") > -1)
+              columns.push({
+                code: col,
+                name: col.replace("COL_","")
+            });
+          }          
+
+          let totalizer = {
+            totalHora : 0,
+            mediaTaxa: 0
+          };
+
         //faz calculo totalizador
-        for(let i = 0; i < result.length; i++) {                        
-          totalizador.totalHora += result[i].total;
-          totalizador.mediaTaxa += result[i].taxa;
+        for(let i = 0; i < table.length; i++) {                        
+          totalizer.totalHora += table[i].total;
+          totalizer.mediaTaxa += table[i].taxa;
         }
-        totalizador.mediaTaxa = Math.round((totalizador.mediaTaxa / (result.length >= 6 ? result.length-1 : result.length)) * 100) / 100;
+        totalizer.mediaTaxa = Math.round((totalizer.mediaTaxa / (table.length >= 6 ? table.length-1 : table.length)) * 100) / 100;
+        totalizer.totalHora = Math.round(totalizer.totalHora * 100) / 100;       
+
+        this.productionCount.push({
+          table: table,
+          columns: columns,
+          totalizer: totalizer
+        });
         
-        if(position === 1) {
-          this.productionCount.push(result);          
-          this.productionCount.push(totalizador);
-          this.productionCount.push(columsArray);
-        }
-        else {
-          this.productionCount1.push(result);          
-          this.productionCount1.push(totalizador);
-          this.productionCount1.push(columsArray);   
-        }
-        this.loading = false;
-      },
-      error => {
-        ons.notification.toast(error, {timeout: 5000});
-        this.loading = false;
-      });     
-  }   
+      }); 
+    },
+    error => {
+      ons.notification.toast(error, {timeout: 5000});
+      this.loading = false;
+    });     
+  }  
 }
