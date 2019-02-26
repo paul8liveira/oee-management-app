@@ -1,16 +1,22 @@
-<ons-card>
+<ons-card *ngFor="let gauge of gauges; let i = index">
   <div class="title">
-    MAQ X
+    <table style="width:100%">
+      <tr>
+        <td style="width:50%">{{gauge.machine_name}}</td>
+        <td style="text-align: right">{{ getMachineOEE(gauge.machine_code) }}</td>
+      </tr>
+    </table> 
   </div>  
   <div class="content">
-      <div id="chartProduction" [style.width.%]="100" [style.height.px]="250"></div>
+      <div id="chartProduction_{{i}}" [style.width.%]="100" [style.height.px]="250"></div>
+      <small>{{gauge.date}}</small>
   </div>
 </ons-card>
-<ons-card>
-  <div class="title">
-    MAQ Y
-  </div>   
-  <div class="content">
-      <div id="chartProduction2" [style.width.%]="100" [style.height.px]="250"></div>
-  </div>
+
+<ons-card *ngIf="gauges.length == 0">
+  <ons-list>             
+    <ons-list-item modifier="nodivider">
+      Nenhuma medição encontrada com os filtros informados
+    </ons-list-item>    
+  </ons-list>
 </ons-card>

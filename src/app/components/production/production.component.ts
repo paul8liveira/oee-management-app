@@ -22,11 +22,15 @@ export class ProductionComponent extends BaseComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.refreshProductionCount();
+    
   }
 
   refreshProductionCount() {    
     this.getProductionCount();
+  }
+
+  ngAfterViewInit() {
+    this.refreshProductionCount();
   }
 
   //ja tenho que refazer toda essa pagina ta td uma bosta...

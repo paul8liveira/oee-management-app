@@ -6,7 +6,7 @@
 const serverURL = 'http://localhost:3000/oee/api/';
 export const environment = {
   production: true,
-  version: '0.0.7',
+  version: '0.0.8',
   userAuthenticationURL: `${serverURL}auth`,
   feedURL: `${serverURL}:userId/:channelId/:machineCode/:date/:limit/feed/mobile`,
   userAddURL: `${serverURL}user`,  
@@ -15,4 +15,6 @@ export const environment = {
   userGetDataByTokenPassURL: `${serverURL}user/data`,
   machineChangeStateURL: `${serverURL}machine/state`,
   productionURL: `${serverURL}feed/production/v2`,
+  chartGaugeURL: `${serverURL}mobile/chart/gauge/:channelId/:machineCode/:date`,
+  OeeURL: `${serverURL}feed/oee`,
 };

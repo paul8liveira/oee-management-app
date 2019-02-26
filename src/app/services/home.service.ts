@@ -44,5 +44,41 @@ export class HomeService extends BaseService {
             .map(res => res.json())
             .pipe(catchError(this.handleError));
     }
+
+    chartGauge(channelId: number, machineCode: string, date: string): Observable<any> {
+        let headers = new Headers({ 
+            'Content-Type': 'application/json',
+            'x-access-token': this.getToken()
+        });
+        let options = new RequestOptions({headers: headers});        
         
+        let url = environment.chartGaugeURL
+            .replace(":channelId", channelId.toString())
+            .replace(":machineCode", machineCode)
+            .replace(":date", date);
+            
+        return this.http.get(url, options)
+            .map(res => res.json())
+            .pipe(catchError(this.handleError));
+    } 
+    
+    OEE(channelId: number, dateIni: string, dateFin: string): Observable<any> {
+        let headers = new Headers({ 
+            'Content-Type': 'application/json',
+            'x-access-token': this.getToken()
+        });
+        let params = {
+            ch_id: channelId,
+            dateIni: dateIni,
+            dateFin: dateFin
+        };
+        let options = new RequestOptions({
+            headers: headers, 
+            search: params
+        });
+
+        return this.http.get(environment.OeeURL, options)
+            .map(res => res.json())
+            .pipe(catchError(this.handleError));
+    }      
 }

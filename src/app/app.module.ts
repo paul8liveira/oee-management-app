@@ -22,6 +22,7 @@ import { MachineService } from './services/machine.service';
 import { AuthenticationService } from './services/authentication.service';
 import { ProductionComponent } from './components/production/production.component';
 import { ProductionChartComponent } from './components/home/production.chart/production.chart.component';
+import { LogComponent } from './components/log/log.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ProductionChartComponent } from './components/home/production.chart/pro
     SignupComponent,
     FeedComponent,
     ProductionComponent,
-    ProductionChartComponent
+    ProductionChartComponent,
+    LogComponent,
   ],
   entryComponents: [
     LoginComponent,
@@ -40,7 +42,8 @@ import { ProductionChartComponent } from './components/home/production.chart/pro
     HomeComponent, 
     FeedComponent,
     ProductionComponent,
-    ProductionChartComponent
+    ProductionChartComponent,
+    LogComponent
   ],
   imports: [
     Routing,

@@ -1,0 +1,43 @@
+.speed-dial-item  {
+    background-color: #3D5FA9;
+  }
+  .speed-dial-item * {
+    color: #FFFFFF;
+  }
+  
+  .fa-button {
+      background-color: #3D5FA9;
+    }
+    
+    .fa-button:active {
+      background-color: #3D5FA9;
+    }
+    
+    .fa-button * {
+      color: #FFFFFF;
+    }
+      
+    .fa-fav-star {
+      margin-top: -15px;
+      padding-left: 10px;
+      font-size: 30px;
+      float: right;
+      color: rgba(0,0,0,0.50);
+    }
+    
+    .fa-fav-star > ons-icon {
+      vertical-align: -18%;
+    }
+  
+    .icon-container {
+      display: table; 
+      height: 100%; 
+      width: 100%;
+    }
+  
+    .icon-text {
+      display: table-cell; 
+      vertical-align: middle; 
+      font-size: 11px; 
+      text-align: center;
+    }

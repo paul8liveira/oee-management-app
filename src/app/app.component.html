@@ -3,14 +3,6 @@
         <ons-page>
             <div class="content">
                 <ons-list>    
-                    <ons-list-item (click)="logout(login)" tappable>
-                        <div class="left">
-                            <ons-icon icon="md-power-off" class="list-item__icon"></ons-icon>
-                        </div>
-                        <div class="center">
-                            Desconectar
-                        </div>
-                    </ons-list-item>
                     <ons-list-item (click)="loadPage(production)" tappable>
                         <div class="left">
                             <ons-icon icon="md-chart" class="list-item__icon"></ons-icon>
@@ -18,7 +10,23 @@
                         <div class="center">
                             Produção
                         </div>
-                    </ons-list-item>                    
+                    </ons-list-item>
+                    <ons-list-item (click)="loadPage(log)" tappable>
+                        <div class="left">
+                            <ons-icon icon="md-format-list-bulleted" class="list-item__icon"></ons-icon>
+                        </div>
+                        <div class="center">
+                            Medições
+                        </div>
+                    </ons-list-item>    
+                    <ons-list-item (click)="logout(login)" tappable>
+                        <div class="left">
+                            <ons-icon icon="md-power-off" class="list-item__icon"></ons-icon>
+                        </div>
+                        <div class="center">
+                            Desconectar
+                        </div>
+                    </ons-list-item>                                                        
                     <ons-list-header>Versão {{version}}</ons-list-header>                    
                 </ons-list>    
             </div>        
