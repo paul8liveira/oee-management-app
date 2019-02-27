@@ -77,7 +77,13 @@ export class HomeComponent extends BaseComponent implements OnInit, OnDestroy {
     this.refreshing = refreshing;
     localStorage.setItem('filterChannelId', this.channelId.toString());
     localStorage.setItem('filterMachineCode', this.machineCode);
-    localStorage.setItem('filterDate', this.date);   
+    localStorage.setItem('filterDate', this.date); 
+    console.log(this.channelId, this.channels);
+    let channel = this.channels.filter(f => f.id === parseInt(this.channelId.toString()));
+    console.log(channel);
+    localStorage.setItem('filterInitialTurn', channel[0].initial_turn);  
+    localStorage.setItem('filterFinalTurn', channel[0].final_turn);  
+
   }
 
   openMenu() {
@@ -91,8 +97,8 @@ export class HomeComponent extends BaseComponent implements OnInit, OnDestroy {
   getChannels() {
     this.channelService.list(this.getCurrentUser().id)
     .subscribe(
-      result => {
-        this.channels = result.filter(f => f.active.toString() === "Ativo");
+      result => {        
+        this.channels = result.filter(f => f.active.toString() === "Ativo");        
         this.channelId = this.channels[0].id;
         this.getMachines();
       },

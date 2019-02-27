@@ -44,7 +44,7 @@ export class ProductionChartComponent extends BaseComponent implements OnInit, O
       this.charts.forEach(f => this.amChartsService.destroyChart(f));
     }
     this.charts = [];  
-    cb();
+    if(cb !== null) cb();
   }
 
   getOEE(cb) {  
@@ -75,7 +75,7 @@ export class ProductionChartComponent extends BaseComponent implements OnInit, O
       });
       if(oee && oee.length > 0) {
         return `OEE: ${oee[0].oee}%`;
-      }
+      }      
   }
 
   getData() {

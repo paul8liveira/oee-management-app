@@ -48,14 +48,14 @@ export class AuthenticationService extends BaseService {
             .map(res => {
                 let resJson = res.json();
                 localStorage.setItem('currentUser', JSON.stringify(resJson)); 
+                localStorage.setItem('filterInitialTurn', resJson.initial_turn);  
+                localStorage.setItem('filterFinalTurn', resJson.final_turn);                  
                 return resJson;
             })
             .pipe(catchError(this.handleError));
     }
 
     logout(): void {
-        localStorage.removeItem('currentUser');
-        localStorage.removeItem('token');
-        localStorage.removeItem('filterChannelId');
+        localStorage.clear();
     }
 }

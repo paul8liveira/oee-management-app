@@ -47,8 +47,8 @@ export class BaseComponent implements OnInit {
         let day = splitDate[0];
         let month = splitDate[1];
         let year = splitDate[2];
-        let hour_ini = this.getCurrentUser().initial_turn + ":00"; 
-        let hour_fin = this.getCurrentUser().final_turn + ":59"; 
+        let hour_ini = localStorage.getItem('filterInitialTurn') + ":00"; 
+        let hour_fin = localStorage.getItem('filterFinalTurn') + ":59"; 
 
         return (
             year 
