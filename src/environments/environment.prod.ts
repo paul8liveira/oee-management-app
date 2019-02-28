@@ -10,6 +10,6 @@ export const environment = {
   userGetDataByTokenPassURL: `${serverURL}user/data`,
   machineChangeStateURL: `${serverURL}machine/state`,
   productionURL: `${serverURL}feed/production/v2`,
-  chartGaugeURL: `${serverURL}mobile/chart/gauge/:channelId/:machineCode/:date`,
+  chartGaugeURL: `${serverURL}mobile/chart/gauge/:channelId/:machineCode/:date/:ini/:fin`,
   OeeURL: `${serverURL}feed/oee`,
 };

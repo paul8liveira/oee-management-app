@@ -47,78 +47,65 @@ export class ProductionChartComponent extends BaseComponent implements OnInit, O
     if(cb !== null) cb();
   }
 
-  getOEE(cb) {  
-    let dateIni = this.formatDateTimeMySQL(this.date, true);
-    let dateFin = this.formatDateTimeMySQL(this.date, false);
-    this.homeService.OEE(this.channelId, dateIni, dateFin)
-    .subscribe(
-      result => {
-        this.OEE = []; 
-        
-        //rejeito result set "ok" do mysql
-        for(let i = 0; i < result.length; i++) {
-          //vou ter que resolver isso depois na proc, to sem paciencia agora
-          if(result[i].length > 1) 
-            this.OEE.push(result[i]);
-        }
-        cb();        
-    },
-    error => {
-      console.log(error); 
-    });     
-  }  
-
-  getMachineOEE(machine_code: string) {
-      //filtra oee conforme maquina selecionada e exibe ao lado do menu (é o que deu por hj...)
-      let oee = this.OEE[0].filter(f => {
-        return f.machine_code === machine_code;
-      });
-      if(oee && oee.length > 0) {
-        return `OEE: ${oee[0].oee}%`;
-      }      
-  }
-
   getData() {
     this.destroyCharts(() => {
-      this.getOEE(() => {
+      let dateIni = this.formatDateTimeMySQL(this.date, true);
+      let dateFin = this.formatDateTimeMySQL(this.date, false);
+      let date = this.setCurrentDateNoSlash(this.date);
 
-        this.homeService.chartGauge(this.channelId, null, this.setCurrentDateNoSlash(this.date))
-        .subscribe(
-          result => {
-            this.gauges = result;
-    
-            for(let i = 0; i < this.gauges.length; i++) {
-              let chart = this.amChartsService.makeChart(`chartProduction_${i}`, this.makeOptions(
-                { bands: [ 
-                  {
-                    "color": "#cc4748",
-                    "endValue": 33,
-                    "startValue": 0
-                  }, 
-                  {
-                    "color": "#fdd400",
-                    "endValue": 66,
-                    "startValue": 33
-                  }, 
-                  {
-                    "color": "#84b761",
-                    "endValue": 100,
-                    "innerRadius": "95%",
-                    "startValue": 66
-                  } 
-                ],
-                endValue: 100,
-                arrows: [ { value: this.gauges[i].production } ],
-                bottomText: this.gauges[i].chart_tooltip_desc,     
-              }), 500);
-              this.charts.push(chart);            
-            }        
-            this.refreshing = false;
-          },
-          error => {
+      this.homeService.chartGauge(this.channelId, null, date, dateIni, dateFin)
+      .subscribe(
+        result => {
+
+        //rejeito result set "ok" do mysql (não pego o item 0 de result pq ele é o gauge)
+        let oeeResultSet = [];
+        for(let i = 1; i < result.length; i++) {
+          //vou ter que resolver isso depois na proc, to sem paciencia agora
+          if(result[i].length > 1) 
+            oeeResultSet.push(result[i]);
+        }
+        
+        //iteração sobre os gauges para adicionar o oee
+        let gauges = result[0];
+        for(let i = 0; i < gauges.length; i++) {
+          let gauge = gauges[i];
+          gauge["oee"] = oeeResultSet[0] ? oeeResultSet[0].filter(f => f.machine_code == gauge.machine_code) : [];
+        }
+        this.gauges = gauges;
+  
+          for(let i = 0; i < this.gauges.length; i++) {
+            let chart = this.amChartsService.makeChart(`chartProduction_${i}`, this.makeOptions(
+              { bands: [ 
+                {
+                  "color": "#cc4748",
+                  "endValue": 33,
+                  "startValue": 0
+                }, 
+                {
+                  "color": "#fdd400",
+                  "endValue": 66,
+                  "startValue": 33
+                }, 
+                {
+                  "color": "#84b761",
+                  "endValue": 100,
+                  "innerRadius": "95%",
+                  "startValue": 66
+                } 
+              ],
+              endValue: 100,
+              arrows: [ { value: this.gauges[i].production } ],
+              bottomText: this.gauges[i].chart_tooltip_desc,     
+            }), 500);
+            this.charts.push(chart);            
+          }        
+          this.refreshing = false;
+        },
+        error => {
+          if(error !== 'sem dados')
             ons.notification.alert(error);        
-          });
-      });
+        });
+    
 
     });
   }

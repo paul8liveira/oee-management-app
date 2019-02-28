@@ -3,7 +3,7 @@
     <table style="width:100%">
       <tr>
         <td style="width:50%">{{gauge.machine_name}}</td>
-        <td style="text-align: right">{{ getMachineOEE(gauge.machine_code) }}</td>
+        <td style="text-align: right">OEE: {{ gauge.oee[0] ? gauge.oee[0]?.oee : 0 }}%</td>
       </tr>
     </table> 
   </div>  

@@ -45,7 +45,7 @@ export class HomeService extends BaseService {
             .pipe(catchError(this.handleError));
     }
 
-    chartGauge(channelId: number, machineCode: string, date: string): Observable<any> {
+    chartGauge(channelId: number, machineCode: string, date: string, dateIni: string, dateFin: string): Observable<any> {
         let headers = new Headers({ 
             'Content-Type': 'application/json',
             'x-access-token': this.getToken()
@@ -55,7 +55,9 @@ export class HomeService extends BaseService {
         let url = environment.chartGaugeURL
             .replace(":channelId", channelId.toString())
             .replace(":machineCode", machineCode)
-            .replace(":date", date);
+            .replace(":date", date)
+            .replace(":ini", dateIni)
+            .replace(":fin", dateFin);
             
         return this.http.get(url, options)
             .map(res => res.json())

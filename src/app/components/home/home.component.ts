@@ -78,9 +78,7 @@ export class HomeComponent extends BaseComponent implements OnInit, OnDestroy {
     localStorage.setItem('filterChannelId', this.channelId.toString());
     localStorage.setItem('filterMachineCode', this.machineCode);
     localStorage.setItem('filterDate', this.date); 
-    console.log(this.channelId, this.channels);
     let channel = this.channels.filter(f => f.id === parseInt(this.channelId.toString()));
-    console.log(channel);
     localStorage.setItem('filterInitialTurn', channel[0].initial_turn);  
     localStorage.setItem('filterFinalTurn', channel[0].final_turn);  
 
