@@ -1,0 +1,12 @@
+{
+  "background_color": "#FFF",
+  "display": "standalone",
+  "name": "StartMeUp",
+  "short_name": "StartMeUp",
+  "version": "site.smup.oee_app",
+  "description": "StartMeUp - Monitoramento Online de Produção.",
+  "author": "paul8liveira",
+  "icons": [],
+  "start_url": "index.html",
+  "theme_color": "#314289"
+}

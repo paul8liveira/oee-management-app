@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="site.smup.oee_app" version="0.0.9" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>StartMeUp</name>
+    <description>
+        StartMeUp - Monitoramento Online de Produção.
+    </description>
+    <author email="tec@smup.site" href="https://www.smup.site/">
+        paul8liveira
+    </author>
+    <content src="index.html" />
+    <access origin="https://oee-server.appspot.com" />
+    <preference name="StatusBarBackgroundColor" value="#314289" />
+</widget>

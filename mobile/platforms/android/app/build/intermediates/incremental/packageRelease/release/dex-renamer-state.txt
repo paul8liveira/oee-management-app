@@ -1,0 +1,4 @@
+#Fri Jan 04 12:48:16 BRST 2019
+base.0=C\:\\Users\\paul8liveira\\Documents\\Sistemas\\GitHub\\oee-management-app\\mobile\\platforms\\android\\app\\build\\intermediates\\transforms\\dex\\release\\0
+path.0=classes.dex
+renamed.0=classes.dex
