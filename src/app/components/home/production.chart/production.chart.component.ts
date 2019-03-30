@@ -56,22 +56,20 @@ export class ProductionChartComponent extends BaseComponent implements OnInit, O
       this.homeService.chartGauge(this.channelId, null, date, dateIni, dateFin)
       .subscribe(
         result => {
-
-        //rejeito result set "ok" do mysql (não pego o item 0 de result pq ele é o gauge)
-        let oeeResultSet = [];
-        for(let i = 1; i < result.length; i++) {
-          //vou ter que resolver isso depois na proc, to sem paciencia agora
-          if(result[i].length > 1) 
-            oeeResultSet.push(result[i]);
-        }
+          //rejeito result set "ok" do mysql (não pego o item 0 de result pq ele é o gauge)
+          let oeeResultSet = [];
+          for(let i = 1; i < result.length; i++) {
+            if(result[i].length > 0) 
+              oeeResultSet.push(result[i]);
+          }
         
-        //iteração sobre os gauges para adicionar o oee
-        let gauges = result[0];
-        for(let i = 0; i < gauges.length; i++) {
-          let gauge = gauges[i];
-          gauge["oee"] = oeeResultSet[0] ? oeeResultSet[0].filter(f => f.machine_code == gauge.machine_code) : [];
-        }
-        this.gauges = gauges;
+          //iteração sobre os gauges para adicionar o oee
+          let gauges = result[0];
+          for(let i = 0; i < gauges.length; i++) {
+            let gauge = gauges[i];
+            gauge["oee"] = oeeResultSet[0] ? oeeResultSet[0].filter(f => f.machine_code == gauge.machine_code) : [];
+          }
+          this.gauges = gauges;
   
           for(let i = 0; i < this.gauges.length; i++) {
             let chart = this.amChartsService.makeChart(`chartProduction_${i}`, this.makeOptions(
