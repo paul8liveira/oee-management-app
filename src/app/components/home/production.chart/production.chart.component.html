@@ -1,22 +1,38 @@
-<ons-card *ngFor="let gauge of gauges; let i = index">
-  <div class="title">
-    <table style="width:100%">
-      <tr>
-        <td style="width:50%">{{gauge.machine_name}}</td>
-        <td style="text-align: right">OEE: {{ gauge.oee[0] ? gauge.oee[0]?.oee : 0 }}%</td>
-      </tr>
-    </table> 
-  </div>  
-  <div class="content">
-      <div id="chartProduction_{{i}}" [style.width.%]="100" [style.height.px]="250"></div>
-      <small>{{gauge.date}}</small>
-  </div>
-</ons-card>
+<ons-page>
+  <ons-toolbar class="toolbar">
+    <div class="left">
+      <ons-back-button modifier="material">Voltar</ons-back-button>
+    </div>
+    <div class="center">Gauge de produção</div>
+    <div class="right">
+      <ons-toolbar-button>
+        <ons-icon icon="md-refresh-sync" size="30px" (click)="getData()"></ons-icon>        
+      </ons-toolbar-button>
+    </div>     
+  </ons-toolbar>
 
-<ons-card *ngIf="gauges.length == 0">
-  <ons-list>             
-    <ons-list-item modifier="nodivider">
-      Nenhuma medição encontrada com os filtros informados
-    </ons-list-item>    
-  </ons-list>
-</ons-card>
+  <div class="content">    
+    <ons-card *ngFor="let gauge of gauges; let i = index">
+      <div class="title">
+        <table style="width:100%">
+          <tr>
+            <td style="width:50%">{{gauge.machine_name}}</td>
+            <td style="text-align: right">OEE: {{ gauge.oee[0] ? gauge.oee[0]?.oee : 0 }}%</td>
+          </tr>
+        </table> 
+      </div>  
+      <div class="content">
+          <div id="chartProduction_{{i}}" [style.width.%]="100" [style.height.px]="250"></div>
+          <small>{{gauge.date}}</small>
+      </div>
+    </ons-card>
+
+    <ons-card *ngIf="gauges.length == 0">
+      <ons-list>             
+        <ons-list-item modifier="nodivider">
+          Nenhuma medição encontrada com os filtros informados
+        </ons-list-item>    
+      </ons-list>
+    </ons-card>
+  </div>
+</ons-page>

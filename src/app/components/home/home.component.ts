@@ -23,6 +23,7 @@ export class HomeComponent extends BaseComponent implements OnInit, OnDestroy {
 
   firstLoad: boolean = true;
   refreshing: boolean = false;
+  resetlimit: boolean = false;
   interval: any;
   
   hookMessage: string = 'Puxe para baixo para atualizar';
@@ -73,15 +74,15 @@ export class HomeComponent extends BaseComponent implements OnInit, OnDestroy {
     }
   }  
 
-  setFilters(refreshing: boolean = false) {
+  setFilters(refreshing: boolean = false, resetlimit: boolean = false) {
     this.refreshing = refreshing;
+    this.resetlimit = resetlimit;
     localStorage.setItem('filterChannelId', this.channelId.toString());
     localStorage.setItem('filterMachineCode', this.machineCode);
     localStorage.setItem('filterDate', this.date); 
     let channel = this.channels.filter(f => f.id === parseInt(this.channelId.toString()));
     localStorage.setItem('filterInitialTurn', channel[0].initial_turn);  
     localStorage.setItem('filterFinalTurn', channel[0].final_turn);  
-
   }
 
   openMenu() {
@@ -105,6 +106,7 @@ export class HomeComponent extends BaseComponent implements OnInit, OnDestroy {
       });     
   }  
   onSelectChannel(channelId: number) {
+    if(this.channelId !== channelId) this.resetlimit = true;
     this.channelId = channelId;
     this.getMachines();
   }

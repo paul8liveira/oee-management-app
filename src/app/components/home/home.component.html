@@ -29,13 +29,21 @@
 
   <ons-progress-bar indeterminate *ngIf="refreshing" modifier="material"></ons-progress-bar>
   
-  <production-chart
+  <log
+    [channelId]="channelId" 
+    [machineCode]="machineCode" 
+    [date]="date"
+    [refreshing]="refreshing"
+    [resetLimit]="resetlimit">
+  </log>
+
+  <!-- <production-chart
     [channelId]="channelId" 
     [machineCode]="machineCode" 
     [date]="date"
     [refreshing]="refreshing"
   >
-  </production-chart>
+  </production-chart> -->
 
   <ons-fab position="right bottom" class="fa-button" modifier="mini modifier2">
     <ons-icon
@@ -73,7 +81,7 @@
                   </p>
                   <br>
                   <div style="text-align: center">
-                      <ons-button (click)="setFilters(true);dialog.hide()">Filtrar</ons-button>
+                      <ons-button (click)="setFilters(true, true);dialog.hide()">Filtrar</ons-button>
                   </div>                  
                 </div>
               </div>

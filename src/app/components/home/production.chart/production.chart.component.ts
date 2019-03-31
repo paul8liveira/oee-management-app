@@ -5,16 +5,16 @@ import { AmChartsService, AmChart } from "@amcharts/amcharts3-angular";
 import * as ons from 'onsenui';
 
 @Component({
-  selector: 'production-chart',
+  selector: 'ons-page[production-chart]',
   templateUrl: './production.chart.component.html',
   styleUrls: ['./production.chart.component.css']
 })
 export class ProductionChartComponent extends BaseComponent implements OnInit, OnDestroy {
   public charts: Array<AmChart> = new Array<AmChart>();
-  @Input() channelId: number;
-  @Input() machineCode: string;  
-  @Input() date: string;  
-  @Input() refreshing: boolean = false;
+  public refreshing: boolean = false;
+  public channelId: number;
+  public machineCode: string;
+  public date: string;
 
   gauges: Array<any> = [];
   OEE: Array<any> = [];
@@ -22,18 +22,17 @@ export class ProductionChartComponent extends BaseComponent implements OnInit, O
   constructor(private homeService: HomeService,
               private amChartsService: AmChartsService) {
     super();
+    this.channelId = parseInt(localStorage.getItem("filterChannelId"));
+    this.machineCode = localStorage.getItem("filterMachineCode");
+    this.date = localStorage.getItem("filterDate");
+    this.refreshing = true;    
   }
 
   ngOnInit() {
   }
 
-  ngOnChanges(changes: {[propKey: string]: SimpleChange}) {
-    if(this.date && this.channelId && this.date.length === 10 && this.refreshing) {
-      this.getData();
-    }
-  } 
-
   ngAfterViewInit() {
+    this.getData();
   } 
 
   ngOnDestroy() {
@@ -48,6 +47,7 @@ export class ProductionChartComponent extends BaseComponent implements OnInit, O
   }
 
   getData() {
+    this.refreshing = true;
     this.destroyCharts(() => {
       let dateIni = this.formatDateTimeMySQL(this.date, true);
       let dateFin = this.formatDateTimeMySQL(this.date, false);

@@ -5,7 +5,7 @@ import { OnsSplitterSide, OnsNavigator } from '../../node_modules/ngx-onsenui';
 import { environment } from '../environments/environment';
 import { AuthenticationService } from './services/authentication.service';
 import { ProductionComponent } from './components/production/production.component';
-import { LogComponent } from './components/log/log.component';
+import { ProductionChartComponent } from './components/home/production.chart/production.chart.component';
 
 @Component({
   selector: 'app-root',
@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
 
   login = LoginComponent;
   production = ProductionComponent;
-  log = LogComponent;
+  gauge = ProductionChartComponent;
   version = environment.version;
     
   initialPage: any;
