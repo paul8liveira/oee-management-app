@@ -3,7 +3,7 @@
   <div style="text-align:right;color:lightgray" *ngIf="feeds.length > 0">
       <small>Exibindo {{limit}} registros</small>
   </div>
-  <ons-progress-bar indeterminate *ngIf="loadingData" modifier="material"></ons-progress-bar>
+  <ons-progress-bar indeterminate *ngIf="refreshing" modifier="material"></ons-progress-bar>
 
   <ons-list>     
       <ons-list-item *ngFor="let feed of feeds; let i = index">

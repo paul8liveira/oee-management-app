@@ -1,1 +1,1 @@
-[{"outputType":{"type":"INSTANT_RUN_MERGED_MANIFESTS"},"apkInfo":{"type":"MAIN","splits":[],"versionCode":6},"path":"AndroidManifest.xml","properties":{"packageId":"site.smup.oee_app","split":"","minSdkVersion":"19"}}]
+[{"outputType":{"type":"INSTANT_RUN_MERGED_MANIFESTS"},"apkInfo":{"type":"MAIN","splits":[],"versionCode":10},"path":"AndroidManifest.xml","properties":{"packageId":"site.smup.oee_app","split":"","minSdkVersion":"19"}}]
