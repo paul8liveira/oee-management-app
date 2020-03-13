@@ -1,4 +1,0 @@
-#Sat Apr 20 15:38:06 BRT 2019
-base.0=C\:\\Users\\paul8liveira\\source\\repos\\GitHub\\oee-management-app\\mobile\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
-path.0=classes.dex
-renamed.0=classes.dex

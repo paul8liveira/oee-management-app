@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="site.smup.oee_app" version="0.0.10" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="site.smup.oee_app" version="0.0.11" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>StartMeUp</name>
     <description>
         StartMeUp - Monitoramento Online de Produção.
@@ -41,6 +41,5 @@
     </platform>
     <plugin name="cordova-plugin-statusbar" spec="~2.4.2" />
     <engine name="browser" spec="^5.0.4" />
-    <engine name="android" spec="^7.1.3" />
     <engine name="ios" spec="^4.5.5" />
 </widget>
