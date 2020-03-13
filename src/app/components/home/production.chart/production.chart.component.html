@@ -9,7 +9,7 @@
         <ons-icon icon="md-refresh-sync" size="30px" (click)="getData()"></ons-icon>        
       </ons-toolbar-button>
     </div>     
-  </ons-toolbar>
+  </ons-toolbar> 
 
   <div class="content">    
     <ons-card *ngFor="let gauge of gauges; let i = index">
@@ -28,10 +28,15 @@
     </ons-card>
 
     <ons-card *ngIf="gauges.length == 0">
+      <ons-progress-bar indeterminate *ngIf="refreshing" modifier="material"></ons-progress-bar>
       <ons-list>             
-        <ons-list-item modifier="nodivider">
+        <ons-list-item modifier="nodivider" *ngIf="gauges.length == 0 && !refreshing">
           Nenhuma medição encontrada com os filtros informados
         </ons-list-item>    
+        <ons-list-item modifier="nodivider" *ngIf="refreshing">
+          Por favor aguarde. Buscando dados...
+        </ons-list-item>
+
       </ons-list>
     </ons-card>
   </div>

@@ -3,7 +3,7 @@
   <div style="text-align:right;color:lightgray" *ngIf="feeds.length > 0">
       <small>Exibindo {{limit}} registros</small>
   </div>
-  <ons-progress-bar indeterminate *ngIf="loadingData" modifier="material"></ons-progress-bar>
+  <ons-progress-bar indeterminate *ngIf="refreshing" modifier="material"></ons-progress-bar>
 
   <ons-list>     
       <ons-list-item *ngFor="let feed of feeds; let i = index">
@@ -26,9 +26,12 @@
         </div>
       </ons-list-item>  
       
-      <ons-list-item modifier="nodivider" *ngIf="feeds.length == 0">
+      <ons-list-item modifier="nodivider" *ngIf="feeds.length == 0 && !refreshing">
         Nenhuma medição encontrada com os filtros informados
       </ons-list-item>    
+      <ons-list-item modifier="nodivider" *ngIf="refreshing">
+        Por favor aguarde. Buscando dados...
+      </ons-list-item>          
     </ons-list>
 </ons-card>
 

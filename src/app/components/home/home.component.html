@@ -26,8 +26,6 @@
   <ons-pull-hook height="64px" threshold-height="128px" (changestate)="onChangeState($event)" (action)="onAction($event)">
     {{hookMessage}}
   </ons-pull-hook>
-
-  <ons-progress-bar indeterminate *ngIf="refreshing" modifier="material"></ons-progress-bar>
   
   <log
     [channelId]="channelId" 

@@ -29,10 +29,11 @@ export class ProductionChartComponent extends BaseComponent implements OnInit, O
   }
 
   ngOnInit() {
+    this.getData();
   }
 
   ngAfterViewInit() {
-    this.getData();
+    
   } 
 
   ngOnDestroy() {

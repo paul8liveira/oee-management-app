@@ -40,9 +40,9 @@ export class HomeComponent extends BaseComponent implements OnInit, OnDestroy {
     this.getChannels();
 
     //faço isso pra limpar a variavel de refresh, ja serve por enquanto
-    this.interval = setInterval(() => {
-      this.refreshing = false;
-    }, 3000);    
+    // this.interval = setInterval(() => {
+    //   this.refreshing = false;
+    // }, 3000);    
   }
 
   ngAfterViewInit() {
