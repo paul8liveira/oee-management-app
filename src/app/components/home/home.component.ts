@@ -1,4 +1,4 @@
-import { Component, OnInit, Injector, OnDestroy } from '@angular/core';
+import { Component, OnInit, Injector, OnDestroy, ViewChild } from '@angular/core';
 import { BaseComponent } from '../base.component';
 import * as ons from 'onsenui';
 import { OnsNavigator } from 'ngx-onsenui';
@@ -6,6 +6,7 @@ import { FeedComponent } from '../feed/feed.component';
 import { ChannelService } from '../../services/channel.service';
 import { MachineService } from '../../services/machine.service';
 import { AppComponent } from '../../app.component';
+import { LogComponent } from '../log/log.component';
 
 @Component({
   selector: 'ons-page[home]',
@@ -13,6 +14,10 @@ import { AppComponent } from '../../app.component';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent extends BaseComponent implements OnInit, OnDestroy {
+  @ViewChild(LogComponent) log: LogComponent;
+
+  hookMessage: string = 'Puxe para baixo para atualizar';
+
   channels: Array<any> = [];
   channelId: number;
 
@@ -22,12 +27,9 @@ export class HomeComponent extends BaseComponent implements OnInit, OnDestroy {
   date: string;
 
   firstLoad: boolean = true;
-  refreshing: boolean = false;
   resetlimit: boolean = false;
   interval: any;
-  
-  hookMessage: string = 'Puxe para baixo para atualizar';
-  
+
   constructor(private _navigator: OnsNavigator,
               private channelService: ChannelService,
               private machineService: MachineService,
@@ -36,27 +38,15 @@ export class HomeComponent extends BaseComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.date = this.getCurrentDate();    
+    this.date = this.getCurrentDate();
     this.getChannels();
-
-    //faço isso pra limpar a variavel de refresh, ja serve por enquanto
-    // this.interval = setInterval(() => {
-    //   this.refreshing = false;
-    // }, 3000);    
   }
 
   ngAfterViewInit() {
-  } 
+  }
 
   ngOnDestroy() {
     clearInterval(this.interval);
-  }
-
-  onAction($event) {
-    setTimeout(() => {
-      $event.done();
-      this.setFilters(true);
-    }, 1000);
   }
 
   onChangeState($event) {
@@ -69,66 +59,74 @@ export class HomeComponent extends BaseComponent implements OnInit, OnDestroy {
         break;
       case 'action':
         this.hookMessage = 'Carregando dados...';
-        this.setFilters(true);
+        console.log('atualização')
+        this.setFilters(false);
         break;
     }
-  }  
+  }
+  onAction($event) {
+    setTimeout(() => {
+      $event.done();
+    }, 1000);
+  }
 
-  setFilters(refreshing: boolean = false, resetlimit: boolean = false) {
-    this.refreshing = refreshing;
+  setFilters(resetlimit: boolean = false) {
+    console.log('setFilters')
     this.resetlimit = resetlimit;
     localStorage.setItem('filterChannelId', this.channelId.toString());
     localStorage.setItem('filterMachineCode', this.machineCode);
-    localStorage.setItem('filterDate', this.date); 
+    localStorage.setItem('filterDate', this.date);
     let channel = this.channels.filter(f => f.id === parseInt(this.channelId.toString()));
-    localStorage.setItem('filterInitialTurn', channel[0].initial_turn);  
-    localStorage.setItem('filterFinalTurn', channel[0].final_turn);  
+    localStorage.setItem('filterInitialTurn', channel[0].initial_turn);
+    localStorage.setItem('filterFinalTurn', channel[0].final_turn);
+    this.log.getData(this.channelId, this.machineCode, this.date, this.resetlimit);
   }
 
   openMenu() {
     this.inj.get(AppComponent).menu.nativeElement.open();
-  }  
+  }
 
   pushFeed() {
-    this._navigator.element.pushPage(FeedComponent); 
-  }    
+    this._navigator.element.pushPage(FeedComponent);
+  }
 
   getChannels() {
     this.channelService.list(this.getCurrentUser().id)
     .subscribe(
-      result => {        
-        this.channels = result.filter(f => f.active.toString() === "Ativo");        
+      result => {
+        this.channels = result.filter(f => f.active.toString() === "Ativo");
         this.channelId = this.channels[0].id;
         this.getMachines();
       },
       error => {
         ons.notification.toast(error || "Falha ao carregar lista de canais", {timeout: 5000});
-      });     
-  }  
+      });
+  }
   onSelectChannel(channelId: number) {
     if(this.channelId !== channelId) this.resetlimit = true;
     this.channelId = channelId;
     this.getMachines();
   }
-  
+
   getMachines() {
     this.machineService.list(this.getCurrentUser().id, this.channelId)
     .subscribe(
       result => {
         this.machines = result;
-        this.machineCode = this.machines[0].code;  
-        
+        this.machineCode = this.machines[0].code;
+
         //faço assim pra garantir o primeiro load e depois não efetuar mais
         if(this.firstLoad) {
+          console.log('primeira chamada')
           this.setFilters(true);
           this.firstLoad = false;
         }
-           
+
       },
       error => {
         ons.notification.toast(error, {timeout: 5000});
-      });     
-  }  
+      });
+  }
 
   scrollUp() {
     var pageContent = document.getElementById("homePage");
